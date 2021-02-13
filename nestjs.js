@@ -1,1 +1,1 @@
-module.exports = require('./dist/messembed-sdk.nest-module');
+module.exports = require('./dist/nestjs');

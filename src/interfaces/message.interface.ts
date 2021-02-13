@@ -1,11 +1,11 @@
 export interface Message {
-  id: number;
+  _id: string;
   createdAt: Date;
   updatedAt: Date;
   deletedAt?: Date;
   editedAt?: Date;
-  chatId: number;
-  userId: number;
+  chat: string;
+  user: string;
   content: string;
   read: boolean;
   externalMetadata?: Record<string, any>;

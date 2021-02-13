@@ -1,9 +1,8 @@
 export interface User {
-  id: string;
+  _id: string;
   createdAt: Date;
   updatedAt: Date;
   deletedAt?: Date;
-  externalId: string;
-  externalMetadata?: Record<string, any>;
-  privateExternalMetadata?: Record<string, any>;
+  externalMetadata?: Record<string, unknown> | null;
+  privateExternalMetadata?: Record<string, unknown> | null;
 }

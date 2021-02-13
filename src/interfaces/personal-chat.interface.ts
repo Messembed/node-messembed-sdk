@@ -1,5 +1,5 @@
 export interface PersonalChat {
-  id: number;
+  _id: string;
 
   createdAt: Date;
 
@@ -12,8 +12,6 @@ export interface PersonalChat {
   active: boolean;
 
   externalMetadata?: Record<string, unknown> | null;
-
-  lastMessageId: number;
 
   lastMessage: Record<string, any>;
 

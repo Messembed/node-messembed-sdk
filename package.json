@@ -5,7 +5,7 @@
   "author": "Edgar Pogosyan <starguitar307@gmail.com>",
   "private": true,
   "license": "MIT",
-  "main": "dist/messembed-sdk.js",
+  "main": "dist/index.js",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
