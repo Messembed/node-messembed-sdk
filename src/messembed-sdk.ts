@@ -7,6 +7,7 @@ import { Message } from './interfaces/message.interface';
 import { FindMessagesResult } from './interfaces/find-messages-result.interface';
 import { FindMessagesData } from './interfaces/find-messages-data.interface';
 import { MessembedSDKOptions } from './interfaces/messembed-sdk-options.interface';
+import { Update } from './interfaces';
 
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'] as const;
 const MESSAGE_DATE_FIELDS = [...DATE_FIELDS, 'readAt'] as const;
@@ -68,6 +69,21 @@ export class MessembedSDK {
     const { data } = await this.axios.get(`users/${userId}`);
 
     return data;
+  }
+
+  async getUpdates(
+    creationDateOfLastFetchedUpdate: Date | string,
+  ): Promise<Update[]> {
+    const updatesResponse = await this.axios.get<Update[]>('updates', {
+      params: {
+        creationDateOfLastFetchedUpdate:
+          typeof creationDateOfLastFetchedUpdate === 'string'
+            ? creationDateOfLastFetchedUpdate
+            : creationDateOfLastFetchedUpdate.toISOString(),
+      },
+    });
+
+    return updatesResponse.data;
   }
 
   protected parseDatesOfObjects<T extends Record<string, any>, R = T>(

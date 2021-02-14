@@ -11,3 +11,4 @@ export * from './messembed-sdk-options.interface';
 export * from './paginated-chats.interface';
 export * from './personal-chat.interface';
 export * from './user.interface';
+export * from './update.interface';
