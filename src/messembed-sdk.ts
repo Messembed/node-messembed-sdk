@@ -86,6 +86,17 @@ export class MessembedSDK {
     return updatesResponse.data;
   }
 
+  async createChat(companionId: string): Promise<PersonalChat> {
+    const creationResponse = await this.axios.post<PersonalChat>(
+      'personal/chats',
+      {
+        companionId,
+      },
+    );
+
+    return creationResponse.data;
+  }
+
   protected parseDatesOfObjects<T extends Record<string, any>, R = T>(
     objects: T[],
     dateFields: readonly string[],
