@@ -88,7 +88,7 @@ export class MessembedSDK {
 
   async createChat(companionId: string): Promise<PersonalChat> {
     const creationResponse = await this.axios.post<PersonalChat>(
-      'personal/chats',
+      'user/personal-chats',
       {
         companionId,
       },

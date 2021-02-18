@@ -60,7 +60,7 @@ class MessembedSDK {
         return updatesResponse.data;
     }
     async createChat(companionId) {
-        const creationResponse = await this.axios.post('personal/chats', {
+        const creationResponse = await this.axios.post('user/personal-chats', {
             companionId,
         });
         return creationResponse.data;

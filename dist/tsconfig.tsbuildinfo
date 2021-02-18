@@ -312,7 +312,7 @@
         "affectsGlobalScope": false
       },
       "../src/messembed-sdk.ts": {
-        "version": "8b9644b47b85f9c25549c53749661f4479a012a2451a93ef0aebb59cba35e73b",
+        "version": "50e2e6c11ab8162f8da43a02e5ee9da76503d8935bce64f6403cecc36ccb565e",
         "signature": "16266cb77be7a55ed7754be85019c9cb0b9ec5e0749453ef97a7d57c522a5207",
         "affectsGlobalScope": false
       },
