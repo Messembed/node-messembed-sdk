@@ -59,6 +59,12 @@ class MessembedSDK {
         });
         return updatesResponse.data;
     }
+    async createChat(companionId) {
+        const creationResponse = await this.axios.post('personal/chats', {
+            companionId,
+        });
+        return creationResponse.data;
+    }
     parseDatesOfObjects(objects, dateFields) {
         objects.forEach((obj) => {
             this.parseDatesOfObject(obj, dateFields);
