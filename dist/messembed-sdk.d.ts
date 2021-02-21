@@ -17,6 +17,7 @@ export declare class MessembedSDK {
     getUser(userId: string): Promise<User>;
     getUpdates(creationDateOfLastFetchedUpdate: Date | string): Promise<Update[]>;
     createChat(companionId: string): Promise<PersonalChat>;
+    readChat(chatId: string): Promise<void>;
     protected parseDatesOfObjects<T extends Record<string, any>, R = T>(objects: T[], dateFields: readonly string[]): R[];
     protected parseDatesOfObject<T extends Record<string, any>, R = T>(obj: T, dateFields: readonly string[]): R;
 }

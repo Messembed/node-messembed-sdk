@@ -8,6 +8,7 @@ export interface Message {
   user: string;
   content: string;
   read: boolean;
+  fromMe: boolean;
   externalMetadata?: Record<string, any>;
   privateExternalMetadata?: Record<string, any>;
 }

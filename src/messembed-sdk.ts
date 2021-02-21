@@ -97,6 +97,10 @@ export class MessembedSDK {
     return creationResponse.data;
   }
 
+  async readChat(chatId: string): Promise<void> {
+    await this.axios.post(`user/personal-chats/${chatId}/read-status`);
+  }
+
   protected parseDatesOfObjects<T extends Record<string, any>, R = T>(
     objects: T[],
     dateFields: readonly string[],

@@ -252,8 +252,8 @@
         "affectsGlobalScope": false
       },
       "../src/interfaces/message.interface.ts": {
-        "version": "35f4b28d3108fc4b2eb70feb0ce2559c05fa0a03f2a44314da7f6fd30c647289",
-        "signature": "5e2335c3fdcc69a93bc056d1029d01d5b7795e20853e23e993ab12f84971c2de",
+        "version": "4b67914ed89fe171c2bdeaa25220602fb11b03c7fbe4531f456e1dd3b54a505a",
+        "signature": "63416e3b93ed0fb2737c89f00974d574e4a1f06fa8814eb682737939fbeb366e",
         "affectsGlobalScope": false
       },
       "../src/interfaces/find-messages-result.interface.ts": {
@@ -312,8 +312,8 @@
         "affectsGlobalScope": false
       },
       "../src/messembed-sdk.ts": {
-        "version": "50e2e6c11ab8162f8da43a02e5ee9da76503d8935bce64f6403cecc36ccb565e",
-        "signature": "16266cb77be7a55ed7754be85019c9cb0b9ec5e0749453ef97a7d57c522a5207",
+        "version": "0d4cef63c5e68ad44927d9fb616915a7a712649f3bc2840a50b14e37b639f22e",
+        "signature": "f6735f0167c544f9ef1a4eacebd0c85eaeb2cd9b9ada1673843c951fed0e28df",
         "affectsGlobalScope": false
       },
       "../src/messembed-admin-sdk.ts": {
