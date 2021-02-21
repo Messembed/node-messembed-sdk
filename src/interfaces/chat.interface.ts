@@ -6,7 +6,6 @@ export interface Chat {
   createdAt: Date;
   updatedAt: Date;
   deletedAt?: Date | null;
-  title?: string;
   active: boolean;
   firstCompanion: User;
   secondCompanion: User;

@@ -237,8 +237,8 @@
         "affectsGlobalScope": true
       },
       "../src/interfaces/personal-chat.interface.ts": {
-        "version": "dbb3953c2b3f57511a355a426c57549762430b4fbdfeee0e4766a74adc20ef79",
-        "signature": "5de8c1b97e313853839289e799d429c56bfe1cc916e6befb1dcd345bd018e7c0",
+        "version": "764ab3c7dda20ea278f4dccbef9388aa05c91808e3ac0d4cb78b9564da92bc77",
+        "signature": "3d10c468ab88d294ca300a79926e430a06c16447e1033f933df7de4f195b1225",
         "affectsGlobalScope": false
       },
       "../src/interfaces/user.interface.ts": {
@@ -277,13 +277,13 @@
         "affectsGlobalScope": false
       },
       "../src/interfaces/chat.interface.ts": {
-        "version": "9a2f0a614b52fce21478eff92ed2c166f4230b1999c7b8c77066fe7e2ad3dd5d",
-        "signature": "2c84ba5ded97f32c20afc87ceb9bcfd3874daee1a616db7ba4feb4e08e8d3988",
+        "version": "1edae73f3b44fee51bd04dc986c6132611bbbc04e5bff5d3743f2bf6240e8b91",
+        "signature": "961d8f7882598ce332328d029831ed62a53490c7b73df0aa6f3c7e48a9de0b18",
         "affectsGlobalScope": false
       },
       "../src/interfaces/create-chat-data.interface.ts": {
-        "version": "6aa738dedb54c75dc6c37b8db939fa87f6a4f9822f95dc8059ba8176db8d15ff",
-        "signature": "4d01cc5a0ee2f585c9eccffea846f27c68926d18b4bfcf79fe4d0f63777d1265",
+        "version": "6cbea9ca532aa22148ac450e6d7619de6097359db291c1685603f08ecd41fcbc",
+        "signature": "583310cb5bced1ee8bbe810e932939a13b7bb83fbb3e64470a2bd542735fb6a6",
         "affectsGlobalScope": false
       },
       "../src/interfaces/create-user-data.interface.ts": {

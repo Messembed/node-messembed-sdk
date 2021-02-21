@@ -7,8 +7,6 @@ export interface PersonalChat {
 
   deletedAt?: Date | null;
 
-  title: string;
-
   active: boolean;
 
   externalMetadata?: Record<string, unknown> | null;

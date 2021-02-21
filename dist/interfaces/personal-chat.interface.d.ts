@@ -3,7 +3,6 @@ export interface PersonalChat {
     createdAt: Date;
     updatedAt: Date;
     deletedAt?: Date | null;
-    title: string;
     active: boolean;
     externalMetadata?: Record<string, unknown> | null;
     lastMessage: Record<string, any>;
