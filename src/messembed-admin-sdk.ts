@@ -7,6 +7,7 @@ import { Chat } from './interfaces/chat.interface';
 import { CreateChatData } from './interfaces/create-chat-data.interface';
 import { CreateUserData } from './interfaces/create-user-data.interface';
 import { User } from './interfaces/user.interface';
+import { FindMessagesData, FindMessagesResult } from '../dist/interfaces';
 
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'] as const;
 
@@ -63,6 +64,16 @@ export class MessembedAdminSDK {
     const { data } = await this.axios.post('admin-api/users', createData);
 
     return this.parseDatesOfObject<any, User>(data, DATE_FIELDS);
+  }
+
+  async getMessages(
+    params: Omit<FindMessagesData, 'chatId'>,
+  ): Promise<FindMessagesResult> {
+    const response = await this.axios.get<FindMessagesResult>(
+      'admin-api/messages',
+      { params },
+    );
+    return response.data;
   }
 
   protected parseDatesOfObjects<T extends Record<string, any>, R = T>(
