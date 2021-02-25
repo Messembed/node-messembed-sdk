@@ -8,26 +8,37 @@ import { FindMessagesResult } from './interfaces/find-messages-result.interface'
 import { FindMessagesData } from './interfaces/find-messages-data.interface';
 import { MessembedSDKOptions } from './interfaces/messembed-sdk-options.interface';
 import { Update } from './interfaces';
+import io, { Socket } from 'socket.io-client';
+import { EventEmitter } from 'events';
 
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'] as const;
 const MESSAGE_DATE_FIELDS = [...DATE_FIELDS, 'readAt'] as const;
 
 export class MessembedSDK {
   protected axios: AxiosInstance;
+  protected params: MessembedSDKOptions;
+  protected socket: typeof Socket;
+  protected eventEmitter = new EventEmitter();
+  protected chatsWritingIndicators: {
+    [chatId: string]: {
+      writing: boolean;
+      clearWritingTimeout?: any;
+    };
+  };
 
-  constructor(options: MessembedSDKOptions) {
+  constructor(params: MessembedSDKOptions) {
+    this.params = params;
     this.axios = axios.create({
-      baseURL: options.baseUrl,
+      baseURL: params.baseUrl,
       headers: {
-        authorization: `Bearer ${options.accessToken}`,
+        authorization: `Bearer ${params.accessToken}`,
       },
     });
+    this.initSocketIo();
   }
 
   async getPersonalChats(): Promise<PersonalChat[]> {
-    const { data } = await this.axios.get<PersonalChat[]>(
-      'user/personal-chats',
-    );
+    const { data } = await this.axios.get<PersonalChat[]>('user/personal-chats');
 
     return this.parseDatesOfObjects(data, DATE_FIELDS);
   }
@@ -41,12 +52,18 @@ export class MessembedSDK {
   async createMessage(createData: CreateMessageData): Promise<Message> {
     const { chatId, ...requestBody } = createData;
 
-    const { data } = await this.axios.post(
-      `chats/${chatId}/messages`,
-      requestBody,
-    );
+    const { data } = await this.axios.post(`chats/${chatId}/messages`, requestBody);
 
     return this.parseDatesOfObject<any, Message>(data, MESSAGE_DATE_FIELDS);
+  }
+
+  async sendMessageOverWS(params: { chatId: string, content: string }): Promise<void> {
+    await this.untilSocketConnected()
+
+    this.socket.emit('send_message', {
+      content: params.content,
+      chatId: params.chatId,
+    })
   }
 
   async findMessages(findData: FindMessagesData): Promise<FindMessagesResult> {
@@ -58,10 +75,7 @@ export class MessembedSDK {
 
     return {
       ...data,
-      messages: this.parseDatesOfObjects<any, Message>(
-        data.messages,
-        MESSAGE_DATE_FIELDS,
-      ),
+      messages: this.parseDatesOfObjects<any, Message>(data.messages, MESSAGE_DATE_FIELDS),
     };
   }
 
@@ -71,9 +85,7 @@ export class MessembedSDK {
     return data;
   }
 
-  async getUpdates(
-    creationDateOfLastFetchedUpdate: Date | string,
-  ): Promise<Update[]> {
+  async getUpdates(creationDateOfLastFetchedUpdate: Date | string): Promise<Update[]> {
     const updatesResponse = await this.axios.get<Update[]>('updates', {
       params: {
         creationDateOfLastFetchedUpdate:
@@ -87,12 +99,9 @@ export class MessembedSDK {
   }
 
   async createChat(companionId: string): Promise<PersonalChat> {
-    const creationResponse = await this.axios.post<PersonalChat>(
-      'user/personal-chats',
-      {
-        companionId,
-      },
-    );
+    const creationResponse = await this.axios.post<PersonalChat>('user/personal-chats', {
+      companionId,
+    });
 
     return creationResponse.data;
   }
@@ -112,15 +121,88 @@ export class MessembedSDK {
     return objects as R[];
   }
 
-  protected parseDatesOfObject<T extends Record<string, any>, R = T>(
-    obj: T,
-    dateFields: readonly string[],
-  ): R {
+  protected parseDatesOfObject<T extends Record<string, any>, R = T>(obj: T, dateFields: readonly string[]): R {
     dateFields.forEach((dateField) => {
       const date = _.get(obj, dateField);
       _.set(obj, dateField, date && new Date(date));
     });
 
     return obj as R;
+  }
+
+  protected initSocketIo(): void {
+    const messembedUrl = new URL(this.params.baseUrl);
+
+    this.socket = io(messembedUrl.origin, {
+      path: messembedUrl.pathname === '/' ? '/socket.io' : messembedUrl.pathname + '/socket.io',
+      query: {
+        token: this.params.accessToken,
+      },
+    });
+
+    this.socket.on('connect', () => {
+      console.log('Socket connected', this.socket);
+    });
+
+    this.socket.on('new_update', (update: Update) => {
+      if (update.type === 'new_message') {
+        this.eventEmitter.emit('new_message', update.message);
+      } else if (update.type === 'new_chat') {
+        this.eventEmitter.emit('new_chat', update.chat);
+      }
+    });
+
+    this.socket.on('writing', (writing: { chatId: string }) => {
+      const existingWritingIndicator = this.chatsWritingIndicators[writing.chatId];
+
+      if (existingWritingIndicator && existingWritingIndicator.clearWritingTimeout) {
+        clearTimeout(existingWritingIndicator.clearWritingTimeout);
+        existingWritingIndicator.clearWritingTimeout = null;
+      } else {
+        this.chatsWritingIndicators[writing.chatId] = {
+          writing: true,
+          clearWritingTimeout: null,
+        };
+      }
+
+      this.chatsWritingIndicators[writing.chatId].writing = true;
+      this.chatsWritingIndicators[writing.chatId].clearWritingTimeout = setTimeout(() => {
+        this.chatsWritingIndicators[writing.chatId].writing = false;
+        this.chatsWritingIndicators[writing.chatId].clearWritingTimeout = null;
+        this.eventEmitter.emit('writing_end', writing.chatId);
+      }, 1500);
+
+      this.eventEmitter.emit('writing', writing.chatId);
+    });
+  }
+
+  onNewMessage(cb: (message: Message) => any): this {
+    this.eventEmitter.on('new_message', cb);
+    return this;
+  }
+
+  onNewChat(cb: (chat: PersonalChat) => any): this {
+    this.eventEmitter.on('new_chat', cb);
+    return this;
+  }
+
+  onWriting(cb: (chatId: string) => any): this {
+    this.eventEmitter.on('writing', cb);
+    return this;
+  }
+
+  onWritingEnd(cb: (chatId: string) => any): this {
+    this.eventEmitter.on('writing_end', cb);
+    return this;
+  }
+
+  protected async untilSocketConnected(): Promise<void> {
+    if(this.socket.connected) {
+      return Promise.resolve()
+    }
+
+    return new Promise((resolve) => {
+      this.socket.on('connect', () => resolve())
+    })
   }
 }
