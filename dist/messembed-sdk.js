@@ -149,6 +149,9 @@ class MessembedSDK {
         this.eventEmitter.on('writing_end', cb);
         return this;
     }
+    sendWritingIndicator(chatId) {
+        this.socket.emit('send_writing', { chatId: chatId });
+    }
     async untilSocketConnected() {
         if (this.socket.connected) {
             return Promise.resolve();

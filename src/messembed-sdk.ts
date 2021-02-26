@@ -196,6 +196,10 @@ export class MessembedSDK {
     return this;
   }
 
+  sendWritingIndicator(chatId: string): void {
+    this.socket.emit('send_writing', { chatId: chatId })
+  }
+
   protected async untilSocketConnected(): Promise<void> {
     if(this.socket.connected) {
       return Promise.resolve()
