@@ -6,6 +6,7 @@ import { Chat } from './interfaces/chat.interface';
 import { CreateChatData } from './interfaces/create-chat-data.interface';
 import { CreateUserData } from './interfaces/create-user-data.interface';
 import { User } from './interfaces/user.interface';
+import { FindMessagesData, FindMessagesResult } from './interfaces';
 export declare class MessembedAdminSDK {
     protected axios: AxiosInstance;
     constructor(options: MessembedAdminSDKOptions);
@@ -15,6 +16,7 @@ export declare class MessembedAdminSDK {
     getChat(chatId: string): Promise<Chat>;
     createChat(createData: CreateChatData): Promise<Chat>;
     createUser(createData: CreateUserData): Promise<User>;
+    getMessages(params: Omit<FindMessagesData, 'chatId'>): Promise<FindMessagesResult>;
     protected parseDatesOfObjects<T extends Record<string, any>, R = T>(objects: T[], dateFields: readonly string[]): R[];
     protected parseDatesOfObject<T extends Record<string, any>, R = T>(obj: T, dateFields: readonly string[]): R;
 }

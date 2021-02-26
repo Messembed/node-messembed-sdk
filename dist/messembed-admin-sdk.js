@@ -39,6 +39,10 @@ class MessembedAdminSDK {
         const { data } = await this.axios.post('admin-api/users', createData);
         return this.parseDatesOfObject(data, DATE_FIELDS);
     }
+    async getMessages(params) {
+        const response = await this.axios.get('admin-api/messages', { params });
+        return response.data;
+    }
     parseDatesOfObjects(objects, dateFields) {
         objects.forEach((obj) => {
             this.parseDatesOfObject(obj, dateFields);

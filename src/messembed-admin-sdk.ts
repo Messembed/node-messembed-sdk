@@ -7,7 +7,7 @@ import { Chat } from './interfaces/chat.interface';
 import { CreateChatData } from './interfaces/create-chat-data.interface';
 import { CreateUserData } from './interfaces/create-user-data.interface';
 import { User } from './interfaces/user.interface';
-import { FindMessagesData, FindMessagesResult } from '../dist/interfaces';
+import { FindMessagesData, FindMessagesResult } from './interfaces';
 
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'] as const;
 
