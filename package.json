@@ -15,7 +15,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "lodash": "^4.17.20",
-    "socket.io-client": "^3.1.1"
+    "socket.io-client": "^2"
   },
   "devDependencies": {
     "@nestjs/common": "^7.6.5",

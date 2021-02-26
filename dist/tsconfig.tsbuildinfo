@@ -311,30 +311,10 @@
         "signature": "7a3530ee7d75dfb89a86b7275a6730cb83d7e6d0c1c13ce5980b5bae9e111d2f",
         "affectsGlobalScope": false
       },
-      "../node_modules/@types/component-emitter/index.d.ts": {
-        "version": "a3a88c1869ba1022dfaefac47ff7a984ec62510e9b4d60988f91d5e523266c34",
-        "signature": "a3a88c1869ba1022dfaefac47ff7a984ec62510e9b4d60988f91d5e523266c34",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/socket.io-parser/dist/index.d.ts": {
-        "version": "6ce9c4c7d976960a7f14dfe40e26c357bcab9405eb2eea38f79760ed4f323512",
-        "signature": "6ce9c4c7d976960a7f14dfe40e26c357bcab9405eb2eea38f79760ed4f323512",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/socket.io-client/build/socket.d.ts": {
-        "version": "e6b51a8a0674f4d49f8f876b30225bc5904b6396454e80fb07575c4a2a9d9076",
-        "signature": "e6b51a8a0674f4d49f8f876b30225bc5904b6396454e80fb07575c4a2a9d9076",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/socket.io-client/build/manager.d.ts": {
-        "version": "eb55c876d308a0e76646f1ca3e13da7ed425d9ea847e24776200cc14f51d0ead",
-        "signature": "eb55c876d308a0e76646f1ca3e13da7ed425d9ea847e24776200cc14f51d0ead",
-        "affectsGlobalScope": false
-      },
-      "../node_modules/socket.io-client/build/index.d.ts": {
-        "version": "e4f701ad984ce784f6d40c65955103a9341a694917915a5d32128e5b53a97019",
-        "signature": "e4f701ad984ce784f6d40c65955103a9341a694917915a5d32128e5b53a97019",
-        "affectsGlobalScope": false
+      "../node_modules/@types/socket.io-client/index.d.ts": {
+        "version": "3fab06880dca03fb8dd2e9780de71196a66f743d995ec9427c47837efd816ce3",
+        "signature": "3fab06880dca03fb8dd2e9780de71196a66f743d995ec9427c47837efd816ce3",
+        "affectsGlobalScope": true
       },
       "../src/messembed-sdk.ts": {
         "version": "ee2d353e8c6e45c5cec0038941e778c35a6e8482e1222893625b01277bc60686",
@@ -1605,11 +1585,6 @@
         "version": "744e6430bafc6f39f66c4fc1e6a0d8c9551260ffd1782aa7e3f5166ac6aa1f86",
         "signature": "744e6430bafc6f39f66c4fc1e6a0d8c9551260ffd1782aa7e3f5166ac6aa1f86",
         "affectsGlobalScope": false
-      },
-      "../node_modules/@types/socket.io-client/index.d.ts": {
-        "version": "3fab06880dca03fb8dd2e9780de71196a66f743d995ec9427c47837efd816ce3",
-        "signature": "3fab06880dca03fb8dd2e9780de71196a66f743d995ec9427c47837efd816ce3",
-        "affectsGlobalScope": true
       }
     },
     "options": {
@@ -2729,24 +2704,6 @@
       ],
       "../node_modules/rxjs/internal/util/pipe.d.ts": [
         "../node_modules/rxjs/internal/types.d.ts"
-      ],
-      "../node_modules/socket.io-client/build/index.d.ts": [
-        "../node_modules/socket.io-client/build/manager.d.ts",
-        "../node_modules/socket.io-client/build/socket.d.ts",
-        "../node_modules/socket.io-parser/dist/index.d.ts"
-      ],
-      "../node_modules/socket.io-client/build/manager.d.ts": [
-        "../node_modules/@types/component-emitter/index.d.ts",
-        "../node_modules/socket.io-client/build/socket.d.ts",
-        "../node_modules/socket.io-parser/dist/index.d.ts"
-      ],
-      "../node_modules/socket.io-client/build/socket.d.ts": [
-        "../node_modules/@types/component-emitter/index.d.ts",
-        "../node_modules/socket.io-client/build/manager.d.ts",
-        "../node_modules/socket.io-parser/dist/index.d.ts"
-      ],
-      "../node_modules/socket.io-parser/dist/index.d.ts": [
-        "../node_modules/@types/component-emitter/index.d.ts"
       ],
       "../src/index.ts": [
         "../src/interfaces/index.ts",
@@ -3919,24 +3876,6 @@
       "../node_modules/rxjs/internal/util/pipe.d.ts": [
         "../node_modules/rxjs/internal/types.d.ts"
       ],
-      "../node_modules/socket.io-client/build/index.d.ts": [
-        "../node_modules/socket.io-client/build/manager.d.ts",
-        "../node_modules/socket.io-client/build/socket.d.ts",
-        "../node_modules/socket.io-parser/dist/index.d.ts"
-      ],
-      "../node_modules/socket.io-client/build/manager.d.ts": [
-        "../node_modules/@types/component-emitter/index.d.ts",
-        "../node_modules/socket.io-client/build/socket.d.ts",
-        "../node_modules/socket.io-parser/dist/index.d.ts"
-      ],
-      "../node_modules/socket.io-client/build/socket.d.ts": [
-        "../node_modules/@types/component-emitter/index.d.ts",
-        "../node_modules/socket.io-client/build/manager.d.ts",
-        "../node_modules/socket.io-parser/dist/index.d.ts"
-      ],
-      "../node_modules/socket.io-parser/dist/index.d.ts": [
-        "../node_modules/@types/component-emitter/index.d.ts"
-      ],
       "../src/index.ts": [
         "../src/interfaces/index.ts",
         "../src/messembed-admin-sdk.ts",
@@ -4140,7 +4079,6 @@
       "../node_modules/@nestjs/common/utils/forward-ref.util.d.ts",
       "../node_modules/@nestjs/common/utils/http-error-by-code.util.d.ts",
       "../node_modules/@nestjs/common/utils/index.d.ts",
-      "../node_modules/@types/component-emitter/index.d.ts",
       "../node_modules/@types/json-schema/index.d.ts",
       "../node_modules/@types/lodash/common/array.d.ts",
       "../node_modules/@types/lodash/common/collection.d.ts",
@@ -4269,10 +4207,6 @@
       "../node_modules/rxjs/internal/util/isObservable.d.ts",
       "../node_modules/rxjs/internal/util/noop.d.ts",
       "../node_modules/rxjs/internal/util/pipe.d.ts",
-      "../node_modules/socket.io-client/build/index.d.ts",
-      "../node_modules/socket.io-client/build/manager.d.ts",
-      "../node_modules/socket.io-client/build/socket.d.ts",
-      "../node_modules/socket.io-parser/dist/index.d.ts",
       "../node_modules/typescript/lib/lib.dom.d.ts",
       "../node_modules/typescript/lib/lib.dom.iterable.d.ts",
       "../node_modules/typescript/lib/lib.es2015.collection.d.ts",
