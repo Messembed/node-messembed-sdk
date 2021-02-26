@@ -1619,6 +1619,7 @@
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
       "target": 4,
       "sourceMap": true,
       "outDir": "./",
