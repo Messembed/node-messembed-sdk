@@ -43,6 +43,7 @@ const MESSAGE_DATE_FIELDS = [...DATE_FIELDS, 'readAt'];
 class MessembedSDK {
     constructor(params) {
         this.eventEmitter = new events_1.EventEmitter();
+        this.chatsWritingIndicators = {};
         this.params = params;
         this.axios = axios_1.default.create({
             baseURL: params.baseUrl,

@@ -24,7 +24,7 @@ export class MessembedSDK {
       writing: boolean;
       clearWritingTimeout?: any;
     };
-  };
+  } = {};
 
   constructor(params: MessembedSDKOptions) {
     this.params = params;
