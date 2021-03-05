@@ -1,7 +1,7 @@
 export interface FindMessagesData {
   chatId: string;
-  afterId?: string;
-  beforeId?: string;
+  after?: Date;
+  before?: Date;
   offset?: number;
   limit?: number;
 }
