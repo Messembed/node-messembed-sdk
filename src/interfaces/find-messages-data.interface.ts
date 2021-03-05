@@ -4,4 +4,5 @@ export interface FindMessagesData {
   before?: Date;
   offset?: number;
   limit?: number;
+  read?: boolean;
 }
