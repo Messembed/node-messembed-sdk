@@ -262,8 +262,8 @@
         "affectsGlobalScope": false
       },
       "../src/interfaces/find-messages-data.interface.ts": {
-        "version": "47c9d55a2b061aeb5f54171e74823779862c4266a5ecfd25f68ab301cf9849e1",
-        "signature": "b83bd264f1dde0590b9750d0c15ddc43d1ebb0f4cdbac4d74bff77ca36be350e",
+        "version": "1b21919eddca638563a12d82a1cab911004c9354a1f6f42e5af0e99405a3eb02",
+        "signature": "e702393ec72cfdaa77c3fc467ea1553578267f4b2a0aff3dd573b962317fc222",
         "affectsGlobalScope": false
       },
       "../src/interfaces/messembed-sdk-options.interface.ts": {
