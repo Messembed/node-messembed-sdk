@@ -1,12 +1,13 @@
 {
   "name": "messembed-sdk",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Messembed Node.js SDK",
   "author": "Edgar Pogosyan <starguitar307@gmail.com>",
   "repository": {
     "url": "https://github.com/Messembed/node-messembed-sdk",
     "type": "git"
   },
+  "homepage": "https://docs.messembed.com",
   "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
