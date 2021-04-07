@@ -321,9 +321,19 @@
         "signature": "c4f0f9e9819f192651c300e6196e3161c0906103fc1451da1fc328c87323d16c",
         "affectsGlobalScope": false
       },
+      "../src/interfaces/edit-user-params.interface.ts": {
+        "version": "b48b27ffc87c512755b3b0ba062961ae7f409187753be5f5e153460a7b18d0b5",
+        "signature": "6dd803c2d0bae258ce00a890490feb1bef7cd7c9e98dfabe9a6fe31b32239842",
+        "affectsGlobalScope": false
+      },
+      "../src/interfaces/edit-chat-params.interface.ts": {
+        "version": "0bd09b8d7c488009fe4e3e61dbd778adeac2b9ed9eef558f539303aa7f4f21b8",
+        "signature": "2003a46574552de5c5275f7e351d48ede192b23323cbc5aaff4c5dbb6dd7ee0b",
+        "affectsGlobalScope": false
+      },
       "../src/messembed-admin-sdk.ts": {
-        "version": "3c84fc8e24a15a1719097db34154f61ef130408706ebb85969c9a5efcbacc74c",
-        "signature": "b0d39df82e15723f06ab27260f5fbcc80157ee8c618883b5e67c9822d7da06fd",
+        "version": "f423375bea2782cc9a79620da25ab853fc219831d184d1de0dd08f83ac605d31",
+        "signature": "357d62fa2fda8a4d415b477ec16564aaecae726f85bce0bb3e676b4b157d5bcd",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
@@ -2747,6 +2757,8 @@
         "../src/interfaces/chat.interface.ts",
         "../src/interfaces/create-chat-data.interface.ts",
         "../src/interfaces/create-user-data.interface.ts",
+        "../src/interfaces/edit-chat-params.interface.ts",
+        "../src/interfaces/edit-user-params.interface.ts",
         "../src/interfaces/index.ts",
         "../src/interfaces/messembed-admin-sdk-options.interface.ts",
         "../src/interfaces/paginated-chats.interface.ts",
@@ -3917,6 +3929,8 @@
         "../src/interfaces/chat.interface.ts",
         "../src/interfaces/create-chat-data.interface.ts",
         "../src/interfaces/create-user-data.interface.ts",
+        "../src/interfaces/edit-chat-params.interface.ts",
+        "../src/interfaces/edit-user-params.interface.ts",
         "../src/interfaces/index.ts",
         "../src/interfaces/messembed-admin-sdk-options.interface.ts",
         "../src/interfaces/paginated-chats.interface.ts",
@@ -4245,6 +4259,8 @@
       "../src/interfaces/create-chat-data.interface.ts",
       "../src/interfaces/create-message-data.interface.ts",
       "../src/interfaces/create-user-data.interface.ts",
+      "../src/interfaces/edit-chat-params.interface.ts",
+      "../src/interfaces/edit-user-params.interface.ts",
       "../src/interfaces/find-messages-data.interface.ts",
       "../src/interfaces/find-messages-result.interface.ts",
       "../src/interfaces/index.ts",

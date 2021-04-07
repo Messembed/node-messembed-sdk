@@ -8,6 +8,8 @@ import { CreateChatData } from './interfaces/create-chat-data.interface';
 import { CreateUserData } from './interfaces/create-user-data.interface';
 import { User } from './interfaces/user.interface';
 import { FindMessagesData, FindMessagesResult } from './interfaces';
+import { EditUserParams } from './interfaces/edit-user-params.interface';
+import { EditChatParams } from './interfaces/edit-chat-params.interface';
 
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'] as const;
 
@@ -60,8 +62,20 @@ export class MessembedAdminSDK {
     return this.parseDatesOfObject<any, Chat>(data, DATE_FIELDS);
   }
 
+  async editChat(params: EditChatParams): Promise<Chat> {
+    const { data } = await this.axios.patch('admin-api/chats/' + params.chatId, _.omit(params, 'chatId'));
+
+    return this.parseDatesOfObject<any, Chat>(data, DATE_FIELDS);
+  }
+
   async createUser(createData: CreateUserData): Promise<User> {
     const { data } = await this.axios.post('admin-api/users', createData);
+
+    return this.parseDatesOfObject<any, User>(data, DATE_FIELDS);
+  }
+
+  async editUser(params: EditUserParams): Promise<User> {
+    const { data } = await this.axios.patch('admin-api/users/' + params.userId, _.omit(params, 'userId'))
 
     return this.parseDatesOfObject<any, User>(data, DATE_FIELDS);
   }

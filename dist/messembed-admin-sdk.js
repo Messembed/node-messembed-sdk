@@ -57,8 +57,16 @@ class MessembedAdminSDK {
         const { data } = await this.axios.post('admin-api/chats', createData);
         return this.parseDatesOfObject(data, DATE_FIELDS);
     }
+    async editChat(params) {
+        const { data } = await this.axios.patch('admin-api/chats/' + params.chatId, _.omit(params, 'chatId'));
+        return this.parseDatesOfObject(data, DATE_FIELDS);
+    }
     async createUser(createData) {
         const { data } = await this.axios.post('admin-api/users', createData);
+        return this.parseDatesOfObject(data, DATE_FIELDS);
+    }
+    async editUser(params) {
+        const { data } = await this.axios.patch('admin-api/users/' + params.userId, _.omit(params, 'userId'));
         return this.parseDatesOfObject(data, DATE_FIELDS);
     }
     async getMessages(params) {
