@@ -1,13 +1,13 @@
-import { MessembedAdminSDKOptions } from './interfaces/messembed-admin-sdk-options.interface';
+import { MessembedAdminSDKParams } from './interfaces/messembed-admin-sdk-params.interface';
 import axios, { AxiosInstance } from 'axios';
 import { AccessToken } from './interfaces/access-token.interface';
 import { PaginatedChats } from './interfaces/paginated-chats.interface';
 import * as _ from 'lodash';
 import { Chat } from './interfaces/chat.interface';
-import { CreateChatData } from './interfaces/create-chat-data.interface';
-import { CreateUserData } from './interfaces/create-user-data.interface';
+import { CreateChatParams } from './interfaces/create-chat-params.interface';
+import { CreateUserParams } from './interfaces/create-user-params.interface';
 import { User } from './interfaces/user.interface';
-import { FindMessagesData, FindMessagesResult } from './interfaces';
+import { ListMessagesParams, ListMessagesResult } from './interfaces';
 import { EditUserParams } from './interfaces/edit-user-params.interface';
 import { EditChatParams } from './interfaces/edit-chat-params.interface';
 
@@ -15,12 +15,12 @@ const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'] as const;
 
 export class MessembedAdminSDK {
   protected axios: AxiosInstance;
-  constructor(options: MessembedAdminSDKOptions) {
+  constructor(params: MessembedAdminSDKParams) {
     this.axios = axios.create({
-      baseURL: options.baseUrl,
+      baseURL: params.baseUrl,
       auth: {
-        username: options.username,
-        password: options.password,
+        username: params.username,
+        password: params.password,
       },
     });
   }
@@ -66,8 +66,8 @@ export class MessembedAdminSDK {
     return this.parseDatesOfObject(data, DATE_FIELDS);
   }
 
-  async createChat(createData: CreateChatData): Promise<Chat> {
-    const { data } = await this.axios.post('admin-api/chats', createData);
+  async createChat(params: CreateChatParams): Promise<Chat> {
+    const { data } = await this.axios.post('admin-api/chats', params);
 
     return this.parseDatesOfObject<any, Chat>(data, DATE_FIELDS);
   }
@@ -78,8 +78,8 @@ export class MessembedAdminSDK {
     return this.parseDatesOfObject<any, Chat>(data, DATE_FIELDS);
   }
 
-  async createUser(createData: CreateUserData): Promise<User> {
-    const { data } = await this.axios.post('admin-api/users', createData);
+  async createUser(params: CreateUserParams): Promise<User> {
+    const { data } = await this.axios.post('admin-api/users', params);
 
     return this.parseDatesOfObject<any, User>(data, DATE_FIELDS);
   }
@@ -90,10 +90,10 @@ export class MessembedAdminSDK {
     return this.parseDatesOfObject<any, User>(data, DATE_FIELDS);
   }
 
-  async getMessages(
-    params: Omit<FindMessagesData, 'chatId'>,
-  ): Promise<FindMessagesResult> {
-    const response = await this.axios.get<FindMessagesResult>(
+  async listMessages(
+    params: Omit<ListMessagesParams, 'chatId'>,
+  ): Promise<ListMessagesResult> {
+    const response = await this.axios.get<ListMessagesResult>(
       'admin-api/messages',
       { params },
     );

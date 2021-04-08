@@ -53,7 +53,7 @@ class MessembedSDK {
         });
         this.initSocketIo();
     }
-    async getPersonalChats() {
+    async listPersonalChats() {
         const { data } = await this.axios.get('user/personal-chats');
         return this.parseDatesOfObjects(data, DATE_FIELDS);
     }
@@ -61,8 +61,8 @@ class MessembedSDK {
         const { data } = await this.axios.get(`user`);
         return this.parseDatesOfObject(data, DATE_FIELDS);
     }
-    async createMessage(createData) {
-        const { chatId } = createData, requestBody = __rest(createData, ["chatId"]);
+    async createMessage(params) {
+        const { chatId } = params, requestBody = __rest(params, ["chatId"]);
         const { data } = await this.axios.post(`chats/${chatId}/messages`, requestBody);
         return this.parseDatesOfObject(data, MESSAGE_DATE_FIELDS);
     }
@@ -73,8 +73,8 @@ class MessembedSDK {
             chatId: params.chatId,
         });
     }
-    async findMessages(findData) {
-        const { chatId } = findData, queryParams = __rest(findData, ["chatId"]);
+    async listMessages(params) {
+        const { chatId } = params, queryParams = __rest(params, ["chatId"]);
         const { data } = await this.axios.get(`chats/${chatId}/messages`, {
             params: queryParams,
         });

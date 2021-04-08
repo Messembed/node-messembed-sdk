@@ -2,11 +2,11 @@ import axios, { AxiosInstance } from 'axios';
 import * as _ from 'lodash';
 import { PersonalChat } from './interfaces/personal-chat.interface';
 import { User } from './interfaces/user.interface';
-import { CreateMessageData } from './interfaces/create-message-data.interface';
+import { CreateMessageParams } from './interfaces/create-message-params.interface';
 import { Message } from './interfaces/message.interface';
-import { FindMessagesResult } from './interfaces/find-messages-result.interface';
-import { FindMessagesData } from './interfaces/find-messages-data.interface';
-import { MessembedSDKOptions } from './interfaces/messembed-sdk-options.interface';
+import { ListMessagesResult } from './interfaces/list-messages-result.interface';
+import { ListMessagesParams } from './interfaces/list-messages-params.interface';
+import { MessembedSDKParams } from './interfaces/messembed-sdk-params.interface';
 import { Update } from './interfaces';
 import io, { Socket } from 'socket.io-client';
 import { EventEmitter } from 'events';
@@ -16,7 +16,7 @@ const MESSAGE_DATE_FIELDS = [...DATE_FIELDS, 'readAt'] as const;
 
 export class MessembedSDK {
   protected axios: AxiosInstance;
-  protected params: MessembedSDKOptions;
+  protected params: MessembedSDKParams;
   protected socket: typeof Socket;
   protected eventEmitter = new EventEmitter();
   protected chatsWritingIndicators: {
@@ -26,7 +26,7 @@ export class MessembedSDK {
     };
   } = {};
 
-  constructor(params: MessembedSDKOptions) {
+  constructor(params: MessembedSDKParams) {
     this.params = params;
     this.axios = axios.create({
       baseURL: params.baseUrl,
@@ -37,7 +37,7 @@ export class MessembedSDK {
     this.initSocketIo();
   }
 
-  async getPersonalChats(): Promise<PersonalChat[]> {
+  async listPersonalChats(): Promise<PersonalChat[]> {
     const { data } = await this.axios.get<PersonalChat[]>('user/personal-chats');
 
     return this.parseDatesOfObjects(data, DATE_FIELDS);
@@ -49,8 +49,8 @@ export class MessembedSDK {
     return this.parseDatesOfObject<any, User>(data, DATE_FIELDS);
   }
 
-  async createMessage(createData: CreateMessageData): Promise<Message> {
-    const { chatId, ...requestBody } = createData;
+  async createMessage(params: CreateMessageParams): Promise<Message> {
+    const { chatId, ...requestBody } = params;
 
     const { data } = await this.axios.post(`chats/${chatId}/messages`, requestBody);
 
@@ -66,8 +66,8 @@ export class MessembedSDK {
     })
   }
 
-  async findMessages(findData: FindMessagesData): Promise<FindMessagesResult> {
-    const { chatId, ...queryParams } = findData;
+  async listMessages(params: ListMessagesParams): Promise<ListMessagesResult> {
+    const { chatId, ...queryParams } = params;
 
     const { data } = await this.axios.get(`chats/${chatId}/messages`, {
       params: queryParams,

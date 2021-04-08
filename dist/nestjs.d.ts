@@ -1,17 +1,17 @@
 import { DynamicModule } from '@nestjs/common';
-import { MessembedAdminSDKOptions, MessembedSDKOptions } from './interfaces';
+import { MessembedAdminSDKParams, MessembedSDKParams } from './interfaces';
 export declare class MessembedSDKModule {
     private static sdkInstance?;
     private static adminSDKInstance?;
-    static forRoot(options: MessembedSDKOptions): DynamicModule;
-    static forRootAdmin(options: MessembedAdminSDKOptions): DynamicModule;
+    static forRoot(options: MessembedSDKParams): DynamicModule;
+    static forRootAdmin(options: MessembedAdminSDKParams): DynamicModule;
     static forRootAsync(asyncOptions: {
-        useFactory: (...args: any[]) => MessembedSDKOptions | Promise<MessembedSDKOptions>;
+        useFactory: (...args: any[]) => MessembedSDKParams | Promise<MessembedSDKParams>;
         imports?: any[];
         inject?: any[];
     }): DynamicModule;
     static forRootAdminAsync(asyncOptions: {
-        useFactory: (...args: any[]) => MessembedAdminSDKOptions | Promise<MessembedAdminSDKOptions>;
+        useFactory: (...args: any[]) => MessembedAdminSDKParams | Promise<MessembedAdminSDKParams>;
         imports?: any[];
         inject?: any[];
     }): DynamicModule;

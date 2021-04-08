@@ -1,3 +1,3 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-//# sourceMappingURL=messembed-sdk-options.interface.js.map
+//# sourceMappingURL=list-messages-params.interface.js.map

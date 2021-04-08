@@ -1,6 +1,6 @@
 import { Message } from './message.interface';
 
-export interface FindMessagesResult {
+export interface ListMessagesResult {
   afterId?: number;
   beforeId?: number;
   offset?: number;

@@ -1,4 +1,4 @@
-export interface CreateMessageData {
+export interface CreateMessageParams {
   chatId: string;
   content: string;
   externalMetadata?: Record<string, any>;

@@ -27,12 +27,12 @@ const axios_1 = __importDefault(require("axios"));
 const _ = __importStar(require("lodash"));
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'];
 class MessembedAdminSDK {
-    constructor(options) {
+    constructor(params) {
         this.axios = axios_1.default.create({
-            baseURL: options.baseUrl,
+            baseURL: params.baseUrl,
             auth: {
-                username: options.username,
-                password: options.password,
+                username: params.username,
+                password: params.password,
             },
         });
     }
@@ -60,23 +60,23 @@ class MessembedAdminSDK {
         const { data } = await this.axios.get(`admin-api/chats/${companionsIds.join(':')}`);
         return this.parseDatesOfObject(data, DATE_FIELDS);
     }
-    async createChat(createData) {
-        const { data } = await this.axios.post('admin-api/chats', createData);
+    async createChat(params) {
+        const { data } = await this.axios.post('admin-api/chats', params);
         return this.parseDatesOfObject(data, DATE_FIELDS);
     }
     async editChat(params) {
         const { data } = await this.axios.patch('admin-api/chats/' + params.chatId, _.omit(params, 'chatId'));
         return this.parseDatesOfObject(data, DATE_FIELDS);
     }
-    async createUser(createData) {
-        const { data } = await this.axios.post('admin-api/users', createData);
+    async createUser(params) {
+        const { data } = await this.axios.post('admin-api/users', params);
         return this.parseDatesOfObject(data, DATE_FIELDS);
     }
     async editUser(params) {
         const { data } = await this.axios.patch('admin-api/users/' + params.userId, _.omit(params, 'userId'));
         return this.parseDatesOfObject(data, DATE_FIELDS);
     }
-    async getMessages(params) {
+    async listMessages(params) {
         const response = await this.axios.get('admin-api/messages', { params });
         return response.data;
     }

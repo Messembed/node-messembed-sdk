@@ -1,4 +1,4 @@
-export interface FindMessagesData {
+export interface ListMessagesParams {
   chatId: string;
   after?: Date;
   before?: Date;

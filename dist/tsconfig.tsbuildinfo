@@ -246,9 +246,9 @@
         "signature": "d4a807cc86168c64a242c4676dd3f48c25b772eea0afbe9d741500275aee6e14",
         "affectsGlobalScope": false
       },
-      "../src/interfaces/create-message-data.interface.ts": {
-        "version": "720cfd301cffbbf196738d987ce7482f25c7bf80a17c8a2737d6e00d3fe76d3b",
-        "signature": "64b08d1d3a76796c910d5b8f8ed019d7814b9cb8fa50e47c8396092cef0b350e",
+      "../src/interfaces/create-message-params.interface.ts": {
+        "version": "0a1a4bb83305f8a37acea8850afb0866c883ee4c8ac2b94e0bd3799612d60be3",
+        "signature": "f04b64e1caa81198930106c0b4c37734f44d107ef1c007e66e4504c354e5ba3c",
         "affectsGlobalScope": false
       },
       "../src/interfaces/message.interface.ts": {
@@ -256,19 +256,19 @@
         "signature": "63416e3b93ed0fb2737c89f00974d574e4a1f06fa8814eb682737939fbeb366e",
         "affectsGlobalScope": false
       },
-      "../src/interfaces/find-messages-result.interface.ts": {
-        "version": "67e73a676b90a10993ed181a2afac0ad5254adf7e3621cc65f571b5fc6680424",
-        "signature": "99e49d31d98a26e8d69421f549e3ad33d28cf0c5585175b6cfce319eca419fed",
+      "../src/interfaces/list-messages-result.interface.ts": {
+        "version": "9b42d0696d2764e534991cd740f0083c04d1aaa6cca1df6078b41521cb7bc499",
+        "signature": "0e58e1dc26d6deba64dba6aad7da94e7a74d0c56d78f2d50d3ee1a4b1e9df406",
         "affectsGlobalScope": false
       },
-      "../src/interfaces/find-messages-data.interface.ts": {
-        "version": "1b21919eddca638563a12d82a1cab911004c9354a1f6f42e5af0e99405a3eb02",
-        "signature": "e702393ec72cfdaa77c3fc467ea1553578267f4b2a0aff3dd573b962317fc222",
+      "../src/interfaces/list-messages-params.interface.ts": {
+        "version": "2f6e7f9d134ea3c5d30b04955f70a934fa9b8667a0efbb4c41831b3f639473ac",
+        "signature": "a1fb4037d8cb96cb10097739b2af241ae1548521a37e5141750c525f34d35e0c",
         "affectsGlobalScope": false
       },
-      "../src/interfaces/messembed-sdk-options.interface.ts": {
-        "version": "7d5718107ce75fdb4117b80ff9e9381591ee523a6bc2df9847c64169b4b33442",
-        "signature": "d5a8c426e7f49161034b2194514c9fdf8d834aff5a609181c8c068574d409f95",
+      "../src/interfaces/messembed-sdk-params.interface.ts": {
+        "version": "9e8efedbe5011b9c39fbb8f801be3323ade117c35c3c2e27e8f1d2f44cea2c48",
+        "signature": "ddfa509cbfd1089258136616084b9581f2636d76013962698e92fe3efcc3b37c",
         "affectsGlobalScope": false
       },
       "../src/interfaces/access-token.interface.ts": {
@@ -281,19 +281,19 @@
         "signature": "961d8f7882598ce332328d029831ed62a53490c7b73df0aa6f3c7e48a9de0b18",
         "affectsGlobalScope": false
       },
-      "../src/interfaces/create-chat-data.interface.ts": {
-        "version": "6cbea9ca532aa22148ac450e6d7619de6097359db291c1685603f08ecd41fcbc",
-        "signature": "583310cb5bced1ee8bbe810e932939a13b7bb83fbb3e64470a2bd542735fb6a6",
+      "../src/interfaces/create-chat-params.interface.ts": {
+        "version": "b20c939c198689955794e5112a4bd0cff434b648915b2cccde1e35d1c0141efc",
+        "signature": "013186ffecfdf1d71eb2d06dcf77879ee41a342fa6523db53dba6733dd02b2b9",
         "affectsGlobalScope": false
       },
-      "../src/interfaces/create-user-data.interface.ts": {
-        "version": "39edc393b365febdf6aab6c04f8818d83122c3a87e892dd7b8219809bca007a6",
-        "signature": "a54a09b49adb9e12bc507da4f8a82ec55e10af5d269bdb762e1b69c65eca1459",
+      "../src/interfaces/create-user-params.interface.ts": {
+        "version": "ef3d8dd17db75b0f2eb5b152c4c0d05bebc6b5637c38e9c6174c686cf2a05b9a",
+        "signature": "2ab8d14479329803dc64fcaf116fe29ca4cc290beaba5acbf9b7c07043696213",
         "affectsGlobalScope": false
       },
-      "../src/interfaces/messembed-admin-sdk-options.interface.ts": {
-        "version": "d1b444b60c5cdc71be7f3383fdf27cf38471de9a8494cfc892ea811bcf440a77",
-        "signature": "f55a7fb558a35bd3b8e4a4c3ba32df99aff135d70abaf1658aa719e2edc9a8ff",
+      "../src/interfaces/messembed-admin-sdk-params.interface.ts": {
+        "version": "54b70e8606d13e85fa0e713e9210e882a5c93f69e9bc9cf0e2b565192bd88431",
+        "signature": "73bda9d7fe6b62dad9e8a07e087bd31f18e124ad7f6f5139169bff11470c9d3f",
         "affectsGlobalScope": false
       },
       "../src/interfaces/paginated-chats.interface.ts": {
@@ -307,8 +307,8 @@
         "affectsGlobalScope": false
       },
       "../src/interfaces/index.ts": {
-        "version": "7a3530ee7d75dfb89a86b7275a6730cb83d7e6d0c1c13ce5980b5bae9e111d2f",
-        "signature": "7a3530ee7d75dfb89a86b7275a6730cb83d7e6d0c1c13ce5980b5bae9e111d2f",
+        "version": "12b3a2847155a6ab0924ffc333eded57efb1bea1c2c4cef763bf66b20c80c777",
+        "signature": "12b3a2847155a6ab0924ffc333eded57efb1bea1c2c4cef763bf66b20c80c777",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/socket.io-client/index.d.ts": {
@@ -317,8 +317,8 @@
         "affectsGlobalScope": true
       },
       "../src/messembed-sdk.ts": {
-        "version": "84efe7e066b9273c34a014e5daa079fa1d78e0d081a16197ef61e0fb61831485",
-        "signature": "c4f0f9e9819f192651c300e6196e3161c0906103fc1451da1fc328c87323d16c",
+        "version": "985e6802d8bf8c0d1ee1cdcba4999ac4be009b70be3aabbc8ca854c70ca9542e",
+        "signature": "cbd87be5baae22246c68f8adb7ae454bc1f7c6b057f98c54fe70380a730f5c19",
         "affectsGlobalScope": false
       },
       "../src/interfaces/edit-user-params.interface.ts": {
@@ -332,8 +332,8 @@
         "affectsGlobalScope": false
       },
       "../src/messembed-admin-sdk.ts": {
-        "version": "826ed21265e7421ad1a462afe615fa42e343144c4755a44d20c3196b4188e137",
-        "signature": "b37830684342164edf702958fbad7cbe4c6ecdecc372c324144c26e967baa4bc",
+        "version": "757b31f9aa4d150123eea27f9cbfb43732696cf8af07518d9ad62518e957e362",
+        "signature": "74c430ea3651054413086857b41a42544c48e7bbc4bb40045cb31d781f688f15",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
@@ -1352,8 +1352,8 @@
         "affectsGlobalScope": false
       },
       "../src/nestjs.ts": {
-        "version": "ee4853ceb1d0c7241d6e17feb40c7ada3c88334862f1a1fcd5d811a7aa078581",
-        "signature": "a25d93398204891a46b66147439df316c32d23f41fb6776141300d4496e1e002",
+        "version": "7f9dc011f9e325b049bbbfc3384f90733c84b551c9c721bb87e94b34687e9c9f",
+        "signature": "0f7bd3fbc8faba701927e969ff8b1bd28e220b3efda2f0536c161b01e2efad5c",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/json-schema/index.d.ts": {
@@ -2724,24 +2724,24 @@
         "../src/interfaces/message.interface.ts",
         "../src/interfaces/user.interface.ts"
       ],
-      "../src/interfaces/find-messages-result.interface.ts": [
-        "../src/interfaces/message.interface.ts"
-      ],
       "../src/interfaces/index.ts": [
         "../src/interfaces/access-token.interface.ts",
         "../src/interfaces/chat.interface.ts",
-        "../src/interfaces/create-chat-data.interface.ts",
-        "../src/interfaces/create-message-data.interface.ts",
-        "../src/interfaces/create-user-data.interface.ts",
-        "../src/interfaces/find-messages-data.interface.ts",
-        "../src/interfaces/find-messages-result.interface.ts",
+        "../src/interfaces/create-chat-params.interface.ts",
+        "../src/interfaces/create-message-params.interface.ts",
+        "../src/interfaces/create-user-params.interface.ts",
+        "../src/interfaces/list-messages-params.interface.ts",
+        "../src/interfaces/list-messages-result.interface.ts",
         "../src/interfaces/message.interface.ts",
-        "../src/interfaces/messembed-admin-sdk-options.interface.ts",
-        "../src/interfaces/messembed-sdk-options.interface.ts",
+        "../src/interfaces/messembed-admin-sdk-params.interface.ts",
+        "../src/interfaces/messembed-sdk-params.interface.ts",
         "../src/interfaces/paginated-chats.interface.ts",
         "../src/interfaces/personal-chat.interface.ts",
         "../src/interfaces/update.interface.ts",
         "../src/interfaces/user.interface.ts"
+      ],
+      "../src/interfaces/list-messages-result.interface.ts": [
+        "../src/interfaces/message.interface.ts"
       ],
       "../src/interfaces/paginated-chats.interface.ts": [
         "../src/interfaces/chat.interface.ts"
@@ -2755,12 +2755,12 @@
         "../node_modules/axios/index.d.ts",
         "../src/interfaces/access-token.interface.ts",
         "../src/interfaces/chat.interface.ts",
-        "../src/interfaces/create-chat-data.interface.ts",
-        "../src/interfaces/create-user-data.interface.ts",
+        "../src/interfaces/create-chat-params.interface.ts",
+        "../src/interfaces/create-user-params.interface.ts",
         "../src/interfaces/edit-chat-params.interface.ts",
         "../src/interfaces/edit-user-params.interface.ts",
         "../src/interfaces/index.ts",
-        "../src/interfaces/messembed-admin-sdk-options.interface.ts",
+        "../src/interfaces/messembed-admin-sdk-params.interface.ts",
         "../src/interfaces/paginated-chats.interface.ts",
         "../src/interfaces/user.interface.ts"
       ],
@@ -2769,12 +2769,12 @@
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/socket.io-client/index.d.ts",
         "../node_modules/axios/index.d.ts",
-        "../src/interfaces/create-message-data.interface.ts",
-        "../src/interfaces/find-messages-data.interface.ts",
-        "../src/interfaces/find-messages-result.interface.ts",
+        "../src/interfaces/create-message-params.interface.ts",
         "../src/interfaces/index.ts",
+        "../src/interfaces/list-messages-params.interface.ts",
+        "../src/interfaces/list-messages-result.interface.ts",
         "../src/interfaces/message.interface.ts",
-        "../src/interfaces/messembed-sdk-options.interface.ts",
+        "../src/interfaces/messembed-sdk-params.interface.ts",
         "../src/interfaces/personal-chat.interface.ts",
         "../src/interfaces/user.interface.ts"
       ],
@@ -3897,24 +3897,24 @@
         "../src/interfaces/message.interface.ts",
         "../src/interfaces/user.interface.ts"
       ],
-      "../src/interfaces/find-messages-result.interface.ts": [
-        "../src/interfaces/message.interface.ts"
-      ],
       "../src/interfaces/index.ts": [
         "../src/interfaces/access-token.interface.ts",
         "../src/interfaces/chat.interface.ts",
-        "../src/interfaces/create-chat-data.interface.ts",
-        "../src/interfaces/create-message-data.interface.ts",
-        "../src/interfaces/create-user-data.interface.ts",
-        "../src/interfaces/find-messages-data.interface.ts",
-        "../src/interfaces/find-messages-result.interface.ts",
+        "../src/interfaces/create-chat-params.interface.ts",
+        "../src/interfaces/create-message-params.interface.ts",
+        "../src/interfaces/create-user-params.interface.ts",
+        "../src/interfaces/list-messages-params.interface.ts",
+        "../src/interfaces/list-messages-result.interface.ts",
         "../src/interfaces/message.interface.ts",
-        "../src/interfaces/messembed-admin-sdk-options.interface.ts",
-        "../src/interfaces/messembed-sdk-options.interface.ts",
+        "../src/interfaces/messembed-admin-sdk-params.interface.ts",
+        "../src/interfaces/messembed-sdk-params.interface.ts",
         "../src/interfaces/paginated-chats.interface.ts",
         "../src/interfaces/personal-chat.interface.ts",
         "../src/interfaces/update.interface.ts",
         "../src/interfaces/user.interface.ts"
+      ],
+      "../src/interfaces/list-messages-result.interface.ts": [
+        "../src/interfaces/message.interface.ts"
       ],
       "../src/interfaces/paginated-chats.interface.ts": [
         "../src/interfaces/chat.interface.ts"
@@ -3927,12 +3927,12 @@
         "../node_modules/axios/index.d.ts",
         "../src/interfaces/access-token.interface.ts",
         "../src/interfaces/chat.interface.ts",
-        "../src/interfaces/create-chat-data.interface.ts",
-        "../src/interfaces/create-user-data.interface.ts",
+        "../src/interfaces/create-chat-params.interface.ts",
+        "../src/interfaces/create-user-params.interface.ts",
         "../src/interfaces/edit-chat-params.interface.ts",
         "../src/interfaces/edit-user-params.interface.ts",
         "../src/interfaces/index.ts",
-        "../src/interfaces/messembed-admin-sdk-options.interface.ts",
+        "../src/interfaces/messembed-admin-sdk-params.interface.ts",
         "../src/interfaces/paginated-chats.interface.ts",
         "../src/interfaces/user.interface.ts"
       ],
@@ -3940,12 +3940,12 @@
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/socket.io-client/index.d.ts",
         "../node_modules/axios/index.d.ts",
-        "../src/interfaces/create-message-data.interface.ts",
-        "../src/interfaces/find-messages-data.interface.ts",
-        "../src/interfaces/find-messages-result.interface.ts",
+        "../src/interfaces/create-message-params.interface.ts",
         "../src/interfaces/index.ts",
+        "../src/interfaces/list-messages-params.interface.ts",
+        "../src/interfaces/list-messages-result.interface.ts",
         "../src/interfaces/message.interface.ts",
-        "../src/interfaces/messembed-sdk-options.interface.ts",
+        "../src/interfaces/messembed-sdk-params.interface.ts",
         "../src/interfaces/personal-chat.interface.ts",
         "../src/interfaces/user.interface.ts"
       ],
@@ -4256,17 +4256,17 @@
       "../src/index.ts",
       "../src/interfaces/access-token.interface.ts",
       "../src/interfaces/chat.interface.ts",
-      "../src/interfaces/create-chat-data.interface.ts",
-      "../src/interfaces/create-message-data.interface.ts",
-      "../src/interfaces/create-user-data.interface.ts",
+      "../src/interfaces/create-chat-params.interface.ts",
+      "../src/interfaces/create-message-params.interface.ts",
+      "../src/interfaces/create-user-params.interface.ts",
       "../src/interfaces/edit-chat-params.interface.ts",
       "../src/interfaces/edit-user-params.interface.ts",
-      "../src/interfaces/find-messages-data.interface.ts",
-      "../src/interfaces/find-messages-result.interface.ts",
       "../src/interfaces/index.ts",
+      "../src/interfaces/list-messages-params.interface.ts",
+      "../src/interfaces/list-messages-result.interface.ts",
       "../src/interfaces/message.interface.ts",
-      "../src/interfaces/messembed-admin-sdk-options.interface.ts",
-      "../src/interfaces/messembed-sdk-options.interface.ts",
+      "../src/interfaces/messembed-admin-sdk-params.interface.ts",
+      "../src/interfaces/messembed-sdk-params.interface.ts",
       "../src/interfaces/paginated-chats.interface.ts",
       "../src/interfaces/personal-chat.interface.ts",
       "../src/interfaces/update.interface.ts",

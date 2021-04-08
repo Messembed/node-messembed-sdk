@@ -1,4 +1,4 @@
-export interface MessembedSDKOptions {
+export interface MessembedSDKParams {
     baseUrl: string;
     accessToken: string;
 }

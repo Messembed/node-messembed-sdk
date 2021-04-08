@@ -1,6 +1,5 @@
-export interface CreateChatData {
+export interface CreateUserParams {
+  id: string;
   externalMetadata?: Record<string, any>;
   privateExternalMetadata?: Record<string, any>;
-  firstCompanionId: string;
-  secondCompanionId: string;
 }
