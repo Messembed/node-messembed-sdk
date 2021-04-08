@@ -53,6 +53,13 @@ class MessembedAdminSDK {
         const { data } = await this.axios.get(`admin-api/chats/${chatId}`);
         return this.parseDatesOfObject(data, DATE_FIELDS);
     }
+    async getChatByCompanionsIds(companionsIds) {
+        if (companionsIds.length !== 2) {
+            throw new TypeError('Argument companionsIds should be an array with 2 IDs');
+        }
+        const { data } = await this.axios.get(`admin-api/chats/${companionsIds.join(':')}`);
+        return this.parseDatesOfObject(data, DATE_FIELDS);
+    }
     async createChat(createData) {
         const { data } = await this.axios.post('admin-api/chats', createData);
         return this.parseDatesOfObject(data, DATE_FIELDS);

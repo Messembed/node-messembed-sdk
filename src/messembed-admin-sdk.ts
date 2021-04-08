@@ -56,6 +56,16 @@ export class MessembedAdminSDK {
     return this.parseDatesOfObject(data, DATE_FIELDS);
   }
 
+  async getChatByCompanionsIds(companionsIds: string[]): Promise<Chat>  {
+    if(companionsIds.length !== 2) {
+      throw new TypeError('Argument companionsIds should be an array with 2 IDs')
+    }
+
+    const { data } = await this.axios.get(`admin-api/chats/${companionsIds.join(':')}`);
+
+    return this.parseDatesOfObject(data, DATE_FIELDS);
+  }
+
   async createChat(createData: CreateChatData): Promise<Chat> {
     const { data } = await this.axios.post('admin-api/chats', createData);
 

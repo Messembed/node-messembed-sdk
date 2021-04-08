@@ -16,6 +16,7 @@ export declare class MessembedAdminSDK {
     createAccessToken(userId: string | number): Promise<AccessToken>;
     getAllChats(): Promise<PaginatedChats>;
     getChat(chatId: string): Promise<Chat>;
+    getChatByCompanionsIds(companionsIds: string[]): Promise<Chat>;
     createChat(createData: CreateChatData): Promise<Chat>;
     editChat(params: EditChatParams): Promise<Chat>;
     createUser(createData: CreateUserData): Promise<User>;
