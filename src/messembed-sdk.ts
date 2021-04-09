@@ -10,6 +10,7 @@ import { MessembedSDKParams } from './interfaces/messembed-sdk-params.interface'
 import { Update } from './interfaces';
 import io, { Socket } from 'socket.io-client';
 import { EventEmitter } from 'events';
+import { ListPersonalChatsParams } from './interfaces/list-personal-chats-params.interface';
 
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'] as const;
 const MESSAGE_DATE_FIELDS = [...DATE_FIELDS, 'readAt'] as const;
@@ -37,8 +38,8 @@ export class MessembedSDK {
     this.initSocketIo();
   }
 
-  async listPersonalChats(): Promise<PersonalChat[]> {
-    const { data } = await this.axios.get<PersonalChat[]>('user/personal-chats');
+  async listPersonalChats(params?: ListPersonalChatsParams): Promise<PersonalChat[]> {
+    const { data } = await this.axios.get<PersonalChat[]>('user/personal-chats', { params });
 
     return this.parseDatesOfObjects(data, DATE_FIELDS);
   }
