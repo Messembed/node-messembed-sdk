@@ -53,8 +53,8 @@ class MessembedSDK {
         });
         this.initSocketIo();
     }
-    async listPersonalChats() {
-        const { data } = await this.axios.get('user/personal-chats');
+    async listPersonalChats(params) {
+        const { data } = await this.axios.get('user/personal-chats', { params });
         return this.parseDatesOfObjects(data, DATE_FIELDS);
     }
     async getMe() {

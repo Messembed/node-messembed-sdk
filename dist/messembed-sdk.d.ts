@@ -10,6 +10,7 @@ import { MessembedSDKParams } from './interfaces/messembed-sdk-params.interface'
 import { Update } from './interfaces';
 import { Socket } from 'socket.io-client';
 import { EventEmitter } from 'events';
+import { ListPersonalChatsParams } from './interfaces/list-personal-chats-params.interface';
 export declare class MessembedSDK {
     protected axios: AxiosInstance;
     protected params: MessembedSDKParams;
@@ -22,7 +23,7 @@ export declare class MessembedSDK {
         };
     };
     constructor(params: MessembedSDKParams);
-    listPersonalChats(): Promise<PersonalChat[]>;
+    listPersonalChats(params?: ListPersonalChatsParams): Promise<PersonalChat[]>;
     getMe(): Promise<User>;
     createMessage(params: CreateMessageParams): Promise<Message>;
     sendMessageOverWS(params: {

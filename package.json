@@ -1,6 +1,6 @@
 {
   "name": "messembed-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Messembed Node.js SDK",
   "author": "Edgar Pogosyan <starguitar307@gmail.com>",
   "repository": {

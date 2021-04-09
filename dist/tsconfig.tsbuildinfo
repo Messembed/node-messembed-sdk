@@ -316,9 +316,14 @@
         "signature": "3fab06880dca03fb8dd2e9780de71196a66f743d995ec9427c47837efd816ce3",
         "affectsGlobalScope": true
       },
+      "../src/interfaces/list-personal-chats-params.interface.ts": {
+        "version": "6152bb28db18adcc177c83742d0901c068e1d62122b99f334cc5b24a38bf3f24",
+        "signature": "e4455ccac524e3d72b3532d6fae7c650e067e30f58cce2dd7fd8e2c9dec7e731",
+        "affectsGlobalScope": false
+      },
       "../src/messembed-sdk.ts": {
-        "version": "985e6802d8bf8c0d1ee1cdcba4999ac4be009b70be3aabbc8ca854c70ca9542e",
-        "signature": "cbd87be5baae22246c68f8adb7ae454bc1f7c6b057f98c54fe70380a730f5c19",
+        "version": "7e301aecd3c7f5a6f22129f54b8a6d033da2b3a6b3079eb0c7fa706b8004f5b0",
+        "signature": "e2f21c41982f49c76480c052f6dfa5a289a6f622951f54720e613c0791aa6a3f",
         "affectsGlobalScope": false
       },
       "../src/interfaces/edit-user-params.interface.ts": {
@@ -2773,6 +2778,7 @@
         "../src/interfaces/index.ts",
         "../src/interfaces/list-messages-params.interface.ts",
         "../src/interfaces/list-messages-result.interface.ts",
+        "../src/interfaces/list-personal-chats-params.interface.ts",
         "../src/interfaces/message.interface.ts",
         "../src/interfaces/messembed-sdk-params.interface.ts",
         "../src/interfaces/personal-chat.interface.ts",
@@ -3944,6 +3950,7 @@
         "../src/interfaces/index.ts",
         "../src/interfaces/list-messages-params.interface.ts",
         "../src/interfaces/list-messages-result.interface.ts",
+        "../src/interfaces/list-personal-chats-params.interface.ts",
         "../src/interfaces/message.interface.ts",
         "../src/interfaces/messembed-sdk-params.interface.ts",
         "../src/interfaces/personal-chat.interface.ts",
@@ -4264,6 +4271,7 @@
       "../src/interfaces/index.ts",
       "../src/interfaces/list-messages-params.interface.ts",
       "../src/interfaces/list-messages-result.interface.ts",
+      "../src/interfaces/list-personal-chats-params.interface.ts",
       "../src/interfaces/message.interface.ts",
       "../src/interfaces/messembed-admin-sdk-params.interface.ts",
       "../src/interfaces/messembed-sdk-params.interface.ts",
