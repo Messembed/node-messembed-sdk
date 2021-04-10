@@ -1,0 +1,1 @@
+{"version":3,"file":"messembed-error.js","sourceRoot":"","sources":["../src/messembed-error.ts"],"names":[],"mappings":";;;AAAA,MAAa,cAAe,SAAQ,KAAK;IAIvC,YAAY,OAAe,EAAE,IAAY,EAAE,QAAc;QACvD,KAAK,CAAC,OAAO,CAAC,CAAC;QACf,MAAM,CAAC,cAAc,CAAC,IAAI,EAAE,cAAc,CAAC,SAAS,CAAC,CAAC;QAEtD,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;QACjB,IAAI,CAAC,QAAQ,GAAG,QAAQ,CAAC;IAC3B,CAAC;CACF;AAXD,wCAWC"}

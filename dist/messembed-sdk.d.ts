@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import { AxiosInstance } from 'axios';
+import { AxiosError, AxiosInstance } from 'axios';
 import { PersonalChat } from './interfaces/personal-chat.interface';
 import { User } from './interfaces/user.interface';
 import { CreateMessageParams } from './interfaces/create-message-params.interface';
@@ -38,6 +38,7 @@ export declare class MessembedSDK {
     protected parseDatesOfObjects<T extends Record<string, any>, R = T>(objects: T[], dateFields: readonly string[]): R[];
     protected parseDatesOfObject<T extends Record<string, any>, R = T>(obj: T, dateFields: readonly string[]): R;
     protected initSocketIo(): void;
+    protected isAxiosError(error: any): error is AxiosError;
     onNewMessage(cb: (message: Message) => any): this;
     onNewChat(cb: (chat: PersonalChat) => any): this;
     onWriting(cb: (chatId: string) => any): this;

@@ -38,6 +38,7 @@ const axios_1 = __importDefault(require("axios"));
 const _ = __importStar(require("lodash"));
 const socket_io_client_1 = __importDefault(require("socket.io-client"));
 const events_1 = require("events");
+const messembed_error_1 = require("./messembed-error");
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'];
 const MESSAGE_DATE_FIELDS = [...DATE_FIELDS, 'readAt'];
 class MessembedSDK {
@@ -50,6 +51,13 @@ class MessembedSDK {
             headers: {
                 authorization: `Bearer ${params.accessToken}`,
             },
+        });
+        this.axios.interceptors.response.use(undefined, (error) => {
+            if (this.isAxiosError(error) && error.response.data) {
+                throw new messembed_error_1.MessembedError(`${error.response.status} ${error.response.statusText}: ` +
+                    `${error.response.data.code} ${error.response.data.message}`, error.response.data.code, error.response.data);
+            }
+            throw error;
         });
         this.initSocketIo();
     }
@@ -155,6 +163,9 @@ class MessembedSDK {
             }, 1500);
             this.eventEmitter.emit('writing', writing.chatId);
         });
+    }
+    isAxiosError(error) {
+        return !!(error && error.isAxiosError);
     }
     onNewMessage(cb) {
         this.eventEmitter.on('new_message', cb);

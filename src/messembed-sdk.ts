@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosError, AxiosInstance } from 'axios';
 import * as _ from 'lodash';
 import { PersonalChat } from './interfaces/personal-chat.interface';
 import { User } from './interfaces/user.interface';
@@ -11,6 +11,7 @@ import { Update } from './interfaces';
 import io, { Socket } from 'socket.io-client';
 import { EventEmitter } from 'events';
 import { ListPersonalChatsParams } from './interfaces/list-personal-chats-params.interface';
+import { MessembedError } from './messembed-error';
 
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'] as const;
 const MESSAGE_DATE_FIELDS = [...DATE_FIELDS, 'readAt'] as const;
@@ -35,6 +36,19 @@ export class MessembedSDK {
         authorization: `Bearer ${params.accessToken}`,
       },
     });
+
+    this.axios.interceptors.response.use(undefined, (error) => {
+      if (this.isAxiosError(error) && error.response.data) {
+        throw new MessembedError(
+          `${error.response.status} ${error.response.statusText}: ` +
+            `${error.response.data.code} ${error.response.data.message}`,
+          error.response.data.code,
+          error.response.data,
+        );
+      }
+
+      throw error;
+    });
     this.initSocketIo();
   }
 
@@ -58,13 +72,13 @@ export class MessembedSDK {
     return this.parseDatesOfObject<any, Message>(data, MESSAGE_DATE_FIELDS);
   }
 
-  async sendMessageOverWS(params: { chatId: string, content: string }): Promise<void> {
-    await this.untilSocketConnected()
+  async sendMessageOverWS(params: { chatId: string; content: string }): Promise<void> {
+    await this.untilSocketConnected();
 
     this.socket.emit('send_message', {
       content: params.content,
       chatId: params.chatId,
-    })
+    });
   }
 
   async listMessages(params: ListMessagesParams): Promise<ListMessagesResult> {
@@ -177,6 +191,10 @@ export class MessembedSDK {
     });
   }
 
+  protected isAxiosError(error: any): error is AxiosError {
+    return !!(error && error.isAxiosError);
+  }
+
   onNewMessage(cb: (message: Message) => any): this {
     this.eventEmitter.on('new_message', cb);
     return this;
@@ -198,16 +216,16 @@ export class MessembedSDK {
   }
 
   sendWritingIndicator(chatId: string): void {
-    this.socket.emit('send_writing', { chatId: chatId })
+    this.socket.emit('send_writing', { chatId: chatId });
   }
 
   protected async untilSocketConnected(): Promise<void> {
-    if(this.socket.connected) {
-      return Promise.resolve()
+    if (this.socket.connected) {
+      return Promise.resolve();
     }
 
     return new Promise((resolve) => {
-      this.socket.on('connect', () => resolve())
-    })
+      this.socket.on('connect', () => resolve());
+    });
   }
 }

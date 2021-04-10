@@ -317,13 +317,18 @@
         "affectsGlobalScope": true
       },
       "../src/interfaces/list-personal-chats-params.interface.ts": {
-        "version": "6152bb28db18adcc177c83742d0901c068e1d62122b99f334cc5b24a38bf3f24",
-        "signature": "e4455ccac524e3d72b3532d6fae7c650e067e30f58cce2dd7fd8e2c9dec7e731",
+        "version": "3c1265c92e89858f548ccfeebcc10e595f2926145f4c7121a5109f5f2e388e54",
+        "signature": "f9095b346bfd85d548d0257b63e596af3f91285c81e05a979a92a77b90bdc145",
+        "affectsGlobalScope": false
+      },
+      "../src/messembed-error.ts": {
+        "version": "fa94784b3436c46567606eb289fb9acb0289873a1f9658880519f8f0597deae5",
+        "signature": "39244f384119296c3ca7f135bddbbdd4e7608edc58bd3fa199148bec2d7b8ef0",
         "affectsGlobalScope": false
       },
       "../src/messembed-sdk.ts": {
-        "version": "7e301aecd3c7f5a6f22129f54b8a6d033da2b3a6b3079eb0c7fa706b8004f5b0",
-        "signature": "e2f21c41982f49c76480c052f6dfa5a289a6f622951f54720e613c0791aa6a3f",
+        "version": "d8bfda7930d79fc921f21901c710e2a9a5d8913dd09d2f74e629ce0b35ff77a2",
+        "signature": "5cd003319cae30ac075b1ec8ac6d79a840a1331d2d55a23c9e15cb89de58f2c0",
         "affectsGlobalScope": false
       },
       "../src/interfaces/edit-user-params.interface.ts": {
@@ -2782,7 +2787,8 @@
         "../src/interfaces/message.interface.ts",
         "../src/interfaces/messembed-sdk-params.interface.ts",
         "../src/interfaces/personal-chat.interface.ts",
-        "../src/interfaces/user.interface.ts"
+        "../src/interfaces/user.interface.ts",
+        "../src/messembed-error.ts"
       ],
       "../src/nestjs.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -4280,6 +4286,7 @@
       "../src/interfaces/update.interface.ts",
       "../src/interfaces/user.interface.ts",
       "../src/messembed-admin-sdk.ts",
+      "../src/messembed-error.ts",
       "../src/messembed-sdk.ts",
       "../src/nestjs.ts"
     ]
