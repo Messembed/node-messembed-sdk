@@ -242,8 +242,8 @@
         "affectsGlobalScope": false
       },
       "../src/interfaces/user.interface.ts": {
-        "version": "385e70dee14577f444f7c86d7960649911fbdd48a2357dd6b3f2cbbf2d0cf5c0",
-        "signature": "d4a807cc86168c64a242c4676dd3f48c25b772eea0afbe9d741500275aee6e14",
+        "version": "e845b9fbf0ffdea6428f3071fb4186d1823f7f16db4925f67f732114277ee206",
+        "signature": "73fc847bd22a5b04841d7af60f9414cce71857c286992f44549e4706cec67f9d",
         "affectsGlobalScope": false
       },
       "../src/interfaces/create-message-params.interface.ts": {
@@ -332,8 +332,8 @@
         "affectsGlobalScope": false
       },
       "../src/interfaces/edit-user-params.interface.ts": {
-        "version": "b48b27ffc87c512755b3b0ba062961ae7f409187753be5f5e153460a7b18d0b5",
-        "signature": "6dd803c2d0bae258ce00a890490feb1bef7cd7c9e98dfabe9a6fe31b32239842",
+        "version": "b3d7f7f6e7d27dbbe3aa356990918c1e23373116ffc0149e014ca568c6d322d4",
+        "signature": "46242885136b566796933cd4f2b5e560dd901d6e855929c47f21f68e32c0f447",
         "affectsGlobalScope": false
       },
       "../src/interfaces/edit-chat-params.interface.ts": {
