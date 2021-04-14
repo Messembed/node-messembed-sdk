@@ -2,7 +2,11 @@
   "name": "messembed-sdk",
   "version": "0.3.0",
   "description": "Messembed Node.js SDK",
-  "author": "Edgar Pogosyan <starguitar307@gmail.com>",
+  "author": {
+    "name": "Edgar Pogosyan",
+    "email": "edgar.pogosyan.a@gmail.com",
+    "url": "https://github.com/Edgar-P-yan"
+  },
   "repository": {
     "url": "https://github.com/Messembed/node-messembed-sdk",
     "type": "git"
