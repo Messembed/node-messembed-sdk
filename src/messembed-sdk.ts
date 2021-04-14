@@ -72,7 +72,7 @@ export class MessembedSDK {
     return this.parseDatesOfObject<any, Message>(data, MESSAGE_DATE_FIELDS);
   }
 
-  async sendMessageOverWS(params: { chatId: string; content: string }): Promise<void> {
+  async sendMessageOverWS(params: CreateMessageParams): Promise<void> {
     await this.untilSocketConnected();
 
     this.socket.emit('send_message', {
@@ -92,6 +92,12 @@ export class MessembedSDK {
       ...data,
       messages: this.parseDatesOfObjects<any, Message>(data.messages, MESSAGE_DATE_FIELDS),
     };
+  }
+
+  async listMessagesWithAttachments(params: { chatId: string }): Promise<Message[]> {
+    const { data } = await this.axios.get(`/user/chats/${params.chatId}/messages-with-attachments`)
+
+    return this.parseDatesOfObjects<any, Message>(data, MESSAGE_DATE_FIELDS);
   }
 
   async getUser(userId: string): Promise<User> {
@@ -139,7 +145,10 @@ export class MessembedSDK {
   protected parseDatesOfObject<T extends Record<string, any>, R = T>(obj: T, dateFields: readonly string[]): R {
     dateFields.forEach((dateField) => {
       const date = _.get(obj, dateField);
-      _.set(obj, dateField, date && new Date(date));
+
+      if(date) {
+        _.set(obj, dateField, new Date(date));
+      }
     });
 
     return obj as R;

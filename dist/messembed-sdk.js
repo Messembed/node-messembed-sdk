@@ -88,6 +88,10 @@ class MessembedSDK {
         });
         return Object.assign(Object.assign({}, data), { messages: this.parseDatesOfObjects(data.messages, MESSAGE_DATE_FIELDS) });
     }
+    async listMessagesWithAttachments(params) {
+        const { data } = await this.axios.get(`/user/chats/${params.chatId}/messages-with-attachments`);
+        return this.parseDatesOfObjects(data, MESSAGE_DATE_FIELDS);
+    }
     async getUser(userId) {
         const { data } = await this.axios.get(`users/${userId}`);
         return data;
@@ -120,7 +124,9 @@ class MessembedSDK {
     parseDatesOfObject(obj, dateFields) {
         dateFields.forEach((dateField) => {
             const date = _.get(obj, dateField);
-            _.set(obj, dateField, date && new Date(date));
+            if (date) {
+                _.set(obj, dateField, new Date(date));
+            }
         });
         return obj;
     }

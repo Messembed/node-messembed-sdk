@@ -247,13 +247,13 @@
         "affectsGlobalScope": false
       },
       "../src/interfaces/create-message-params.interface.ts": {
-        "version": "0a1a4bb83305f8a37acea8850afb0866c883ee4c8ac2b94e0bd3799612d60be3",
-        "signature": "f04b64e1caa81198930106c0b4c37734f44d107ef1c007e66e4504c354e5ba3c",
+        "version": "315096ce6393b2919afe5bf1fb90e5c01b284c5eadabd49970d58b7987157af5",
+        "signature": "e8068dd7ce60c64671014a8cd6d01b47b8e7f80249f20087f1535b82afe33dc6",
         "affectsGlobalScope": false
       },
       "../src/interfaces/message.interface.ts": {
-        "version": "4b67914ed89fe171c2bdeaa25220602fb11b03c7fbe4531f456e1dd3b54a505a",
-        "signature": "63416e3b93ed0fb2737c89f00974d574e4a1f06fa8814eb682737939fbeb366e",
+        "version": "64840c6813b705a6f116057d09d05d15afdf9eeeecf4daebd9e6a395ca35aff1",
+        "signature": "1805a90b86838487e22d1815a5938739b21fb9fdc7b0fc711ba2c5e7b11032a4",
         "affectsGlobalScope": false
       },
       "../src/interfaces/list-messages-result.interface.ts": {
@@ -327,8 +327,8 @@
         "affectsGlobalScope": false
       },
       "../src/messembed-sdk.ts": {
-        "version": "d8bfda7930d79fc921f21901c710e2a9a5d8913dd09d2f74e629ce0b35ff77a2",
-        "signature": "5cd003319cae30ac075b1ec8ac6d79a840a1331d2d55a23c9e15cb89de58f2c0",
+        "version": "188fcb24e0d6a060dd34d92b303a873f604c0ad404fb6d1b89541008c8caf36b",
+        "signature": "05ef6ae1f9330186c1eb3de0467990769b4e3e8247dbf349987529644eb9eb8f",
         "affectsGlobalScope": false
       },
       "../src/interfaces/edit-user-params.interface.ts": {

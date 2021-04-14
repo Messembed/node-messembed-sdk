@@ -26,11 +26,11 @@ export declare class MessembedSDK {
     listPersonalChats(params?: ListPersonalChatsParams): Promise<PersonalChat[]>;
     getMe(): Promise<User>;
     createMessage(params: CreateMessageParams): Promise<Message>;
-    sendMessageOverWS(params: {
-        chatId: string;
-        content: string;
-    }): Promise<void>;
+    sendMessageOverWS(params: CreateMessageParams): Promise<void>;
     listMessages(params: ListMessagesParams): Promise<ListMessagesResult>;
+    listMessagesWithAttachments(params: {
+        chatId: string;
+    }): Promise<Message[]>;
     getUser(userId: string): Promise<User>;
     getUpdates(creationDateOfLastFetchedUpdate: Date | string): Promise<Update[]>;
     createChat(companionId: string): Promise<PersonalChat>;
