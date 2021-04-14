@@ -22,7 +22,7 @@ const messembedSdk = new MessembedSDK({
 });
 
 ```
-For the list of methods look at the documentation: https://docs.messembed.com/perepiski/client-api/node.js-sdk 
+For the list of methods look at the documentation: https://docs.messembed.com/api/client-api 
 
 ## Admin SDK
 ```ts
@@ -35,4 +35,4 @@ const messembedSdk = new MessembedAdminSDK({
 });
 
 ```
-For the list of methods look at the documentation: https://docs.messembed.com/perepiski/server-api/node.js-sdk 
+For the list of methods look at the documentation: https://docs.messembed.com/api/server-api/node.js-sdk 
