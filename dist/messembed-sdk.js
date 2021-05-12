@@ -79,6 +79,8 @@ class MessembedSDK {
         this.socket.emit('send_message', {
             content: params.content,
             chatId: params.chatId,
+            attachments: params.attachments,
+            externalMetadata: params.externalMetadata,
         });
     }
     async listMessages(params) {
