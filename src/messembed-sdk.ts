@@ -95,7 +95,7 @@ export class MessembedSDK {
   }
 
   async listMessagesWithAttachments(params: { chatId: string }): Promise<Message[]> {
-    const { data } = await this.axios.get(`/user/chats/${params.chatId}/messages-with-attachments`)
+    const { data } = await this.axios.get(`chats/${params.chatId}/messages-with-attachments`)
 
     return this.parseDatesOfObjects<any, Message>(data, MESSAGE_DATE_FIELDS);
   }

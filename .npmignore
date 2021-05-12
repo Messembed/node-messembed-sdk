@@ -34,3 +34,7 @@ lerna-debug.log*
 .prettierrc
 yarn.lock
 src
+
+readme-hero.jpg
+dist/tsconfig.tsbuildinfo
+dist/**/*.map
