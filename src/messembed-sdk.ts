@@ -133,6 +133,10 @@ export class MessembedSDK {
     await this.axios.post(`user/personal-chats/${chatId}/read-status`);
   }
 
+  async clearChatHistory(chatId: string): Promise<void> {
+    await this.axios.delete(`chats/${chatId}/messages`);
+  }
+
   protected parseDatesOfObjects<T extends Record<string, any>, R = T>(
     objects: T[],
     dateFields: readonly string[],

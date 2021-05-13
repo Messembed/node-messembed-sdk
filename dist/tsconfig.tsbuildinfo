@@ -327,8 +327,8 @@
         "affectsGlobalScope": false
       },
       "../src/messembed-sdk.ts": {
-        "version": "f0ab5e23bedb1f84fb3e080c7bfb3b264fecabf7035b741c791f353668e68845",
-        "signature": "05ef6ae1f9330186c1eb3de0467990769b4e3e8247dbf349987529644eb9eb8f",
+        "version": "55c467cb9cf4f02d9e43dc150833ec1c2d55773d3141b4e609ffd28b99910c72",
+        "signature": "69527e2b280bd271d759a81b031c4f00c38b5a0653638d1343e87989e6cbd8a1",
         "affectsGlobalScope": false
       },
       "../src/interfaces/edit-user-params.interface.ts": {

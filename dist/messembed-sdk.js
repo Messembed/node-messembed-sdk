@@ -117,6 +117,9 @@ class MessembedSDK {
     async readChat(chatId) {
         await this.axios.post(`user/personal-chats/${chatId}/read-status`);
     }
+    async clearChatHistory(chatId) {
+        await this.axios.delete(`chats/${chatId}/messages`);
+    }
     parseDatesOfObjects(objects, dateFields) {
         objects.forEach((obj) => {
             this.parseDatesOfObject(obj, dateFields);
