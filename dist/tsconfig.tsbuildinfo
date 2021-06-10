@@ -317,8 +317,8 @@
         "affectsGlobalScope": true
       },
       "../src/interfaces/list-personal-chats-params.interface.ts": {
-        "version": "3c1265c92e89858f548ccfeebcc10e595f2926145f4c7121a5109f5f2e388e54",
-        "signature": "f9095b346bfd85d548d0257b63e596af3f91285c81e05a979a92a77b90bdc145",
+        "version": "b0d912688ed010b386ebfe9b4ad2dc2d393935544132f46da230c3ea3dcd9af1",
+        "signature": "865dd69f5bfae7117827c45a7e14eee1a62ce90465a0c9163a9f00c77ba4bcab",
         "affectsGlobalScope": false
       },
       "../src/messembed-error.ts": {
