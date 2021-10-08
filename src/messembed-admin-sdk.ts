@@ -10,8 +10,11 @@ import { User } from './interfaces/user.interface';
 import { ListMessagesParams, ListMessagesResult } from './interfaces';
 import { EditUserParams } from './interfaces/edit-user-params.interface';
 import { EditChatParams } from './interfaces/edit-chat-params.interface';
+import { CreateMessageAsAdminParams } from './interfaces/create-message-params-as-admin.interface';
+import { Message } from './interfaces/message.interface';
 
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'] as const;
+const MESSAGE_DATE_FIELDS = [...DATE_FIELDS, 'readAt'] as const;
 
 export class MessembedAdminSDK {
   protected axios: AxiosInstance;
@@ -23,6 +26,14 @@ export class MessembedAdminSDK {
         password: params.password,
       },
     });
+  }
+
+  async createMessage(params: CreateMessageAsAdminParams): Promise<Message> {
+    const { chatId, ...requestBody } = params;
+
+    const { data } = await this.axios.post(`admin-api/chats/${chatId}/messages`, requestBody);
+
+    return this.parseDatesOfObject<any, Message>(data, MESSAGE_DATE_FIELDS);
   }
 
   async getUser(userId: string): Promise<User> {

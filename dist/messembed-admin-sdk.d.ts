@@ -9,9 +9,12 @@ import { User } from './interfaces/user.interface';
 import { ListMessagesParams, ListMessagesResult } from './interfaces';
 import { EditUserParams } from './interfaces/edit-user-params.interface';
 import { EditChatParams } from './interfaces/edit-chat-params.interface';
+import { CreateMessageAsAdminParams } from './interfaces/create-message-params-as-admin.interface';
+import { Message } from './interfaces/message.interface';
 export declare class MessembedAdminSDK {
     protected axios: AxiosInstance;
     constructor(params: MessembedAdminSDKParams);
+    createMessage(params: CreateMessageAsAdminParams): Promise<Message>;
     getUser(userId: string): Promise<User>;
     createAccessToken(userId: string | number): Promise<AccessToken>;
     getAllChats(): Promise<PaginatedChats>;

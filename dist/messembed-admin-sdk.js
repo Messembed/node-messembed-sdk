@@ -18,6 +18,17 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -26,6 +37,7 @@ exports.MessembedAdminSDK = void 0;
 const axios_1 = __importDefault(require("axios"));
 const _ = __importStar(require("lodash"));
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'];
+const MESSAGE_DATE_FIELDS = [...DATE_FIELDS, 'readAt'];
 class MessembedAdminSDK {
     constructor(params) {
         this.axios = axios_1.default.create({
@@ -35,6 +47,11 @@ class MessembedAdminSDK {
                 password: params.password,
             },
         });
+    }
+    async createMessage(params) {
+        const { chatId } = params, requestBody = __rest(params, ["chatId"]);
+        const { data } = await this.axios.post(`admin-api/chats/${chatId}/messages`, requestBody);
+        return this.parseDatesOfObject(data, MESSAGE_DATE_FIELDS);
     }
     async getUser(userId) {
         const { data } = await this.axios.get(`users/${userId}`);
