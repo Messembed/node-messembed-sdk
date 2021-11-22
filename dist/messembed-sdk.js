@@ -65,6 +65,10 @@ class MessembedSDK {
         const { data } = await this.axios.get('user/personal-chats', { params });
         return this.parseDatesOfObjects(data, DATE_FIELDS);
     }
+    async getUnreadChatsCount(params) {
+        const { data } = await this.axios.get('user/unread-personal-chats-count', { params });
+        return data.count;
+    }
     async getMe() {
         const { data } = await this.axios.get(`user`);
         return this.parseDatesOfObject(data, DATE_FIELDS);

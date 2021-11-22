@@ -12,6 +12,7 @@ import io, { Socket } from 'socket.io-client';
 import { EventEmitter } from 'events';
 import { ListPersonalChatsParams } from './interfaces/list-personal-chats-params.interface';
 import { MessembedError } from './messembed-error';
+import { GetUnreadChatsCountParams } from './interfaces/get-unread-chats-count-params.dto';
 
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'] as const;
 const MESSAGE_DATE_FIELDS = [...DATE_FIELDS, 'readAt'] as const;
@@ -58,6 +59,12 @@ export class MessembedSDK {
     return this.parseDatesOfObjects(data, DATE_FIELDS);
   }
 
+  async getUnreadChatsCount(params?: GetUnreadChatsCountParams): Promise<number> {
+    const { data } = await this.axios.get<{ count: number }>('user/unread-personal-chats-count', { params });
+
+    return data.count;
+  }
+
   async getMe(): Promise<User> {
     const { data } = await this.axios.get(`user`);
 
@@ -97,7 +104,7 @@ export class MessembedSDK {
   }
 
   async listMessagesWithAttachments(params: { chatId: string }): Promise<Message[]> {
-    const { data } = await this.axios.get(`chats/${params.chatId}/messages-with-attachments`)
+    const { data } = await this.axios.get(`chats/${params.chatId}/messages-with-attachments`);
 
     return this.parseDatesOfObjects<any, Message>(data, MESSAGE_DATE_FIELDS);
   }
@@ -152,7 +159,7 @@ export class MessembedSDK {
     dateFields.forEach((dateField) => {
       const date = _.get(obj, dateField);
 
-      if(date) {
+      if (date) {
         _.set(obj, dateField, new Date(date));
       }
     });
