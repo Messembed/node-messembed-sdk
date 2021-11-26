@@ -332,8 +332,8 @@
         "affectsGlobalScope": false
       },
       "../src/messembed-sdk.ts": {
-        "version": "013d49286786055aee718991ce9f8383a90fdfa0ecf1c819aa270c669c07c67d",
-        "signature": "abe45025139cf94f21cd3c33918c549e9ff254357128edbeaed3cdd067088b8f",
+        "version": "f5802785a259cf437f20f3e72387c991f56d0d5d8b79b91177f85c181d0aecaf",
+        "signature": "fbb18fe3a2fbcf803b02e56eef4f4aef0d979515915a4ef89ccb89b2139d262a",
         "affectsGlobalScope": false
       },
       "../src/interfaces/edit-user-params.interface.ts": {

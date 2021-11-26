@@ -47,5 +47,6 @@ export declare class MessembedSDK {
     onWriting(cb: (chatId: string) => any): this;
     onWritingEnd(cb: (chatId: string) => any): this;
     sendWritingIndicator(chatId: string): void;
+    close(): void;
     protected untilSocketConnected(): Promise<void>;
 }
