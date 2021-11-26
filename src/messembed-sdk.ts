@@ -243,6 +243,7 @@ export class MessembedSDK {
 
   close(): void {
     this.socket.close()
+    this.eventEmitter.removeAllListeners()
   }
 
   protected async untilSocketConnected(): Promise<void> {

@@ -203,6 +203,7 @@ class MessembedSDK {
     }
     close() {
         this.socket.close();
+        this.eventEmitter.removeAllListeners();
     }
     async untilSocketConnected() {
         if (this.socket.connected) {
