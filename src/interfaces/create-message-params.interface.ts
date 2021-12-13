@@ -5,7 +5,7 @@ export interface CreateMessageParams {
   /**
    * Information about attached files
    */
-  attachments?: ({ type?: string, url?: string } | Record<string, unknown>)[];
+  attachments?: ({ type?: string; url?: string } | Record<string, unknown>)[];
 
   externalMetadata?: Record<string, any>;
 }

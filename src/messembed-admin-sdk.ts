@@ -43,9 +43,7 @@ export class MessembedAdminSDK {
   }
 
   async createAccessToken(userId: string | number): Promise<AccessToken> {
-    const { data } = await this.axios.post<AccessToken>(
-      `admin-api/users/${userId}/access-tokens`,
-    );
+    const { data } = await this.axios.post<AccessToken>(`admin-api/users/${userId}/access-tokens`);
 
     return data;
   }
@@ -67,9 +65,9 @@ export class MessembedAdminSDK {
     return this.parseDatesOfObject(data, DATE_FIELDS);
   }
 
-  async getChatByCompanionsIds(companionsIds: string[]): Promise<Chat>  {
-    if(companionsIds.length !== 2) {
-      throw new TypeError('Argument companionsIds should be an array with 2 IDs')
+  async getChatByCompanionsIds(companionsIds: string[]): Promise<Chat> {
+    if (companionsIds.length !== 2) {
+      throw new TypeError('Argument companionsIds should be an array with 2 IDs');
     }
 
     const { data } = await this.axios.get(`admin-api/chats/${companionsIds.join(':')}`);
@@ -96,18 +94,13 @@ export class MessembedAdminSDK {
   }
 
   async editUser(params: EditUserParams): Promise<User> {
-    const { data } = await this.axios.patch('admin-api/users/' + params.userId, _.omit(params, 'userId'))
+    const { data } = await this.axios.patch('admin-api/users/' + params.userId, _.omit(params, 'userId'));
 
     return this.parseDatesOfObject<any, User>(data, DATE_FIELDS);
   }
 
-  async listMessages(
-    params: Omit<ListMessagesParams, 'chatId'>,
-  ): Promise<ListMessagesResult> {
-    const response = await this.axios.get<ListMessagesResult>(
-      'admin-api/messages',
-      { params },
-    );
+  async listMessages(params: Omit<ListMessagesParams, 'chatId'>): Promise<ListMessagesResult> {
+    const response = await this.axios.get<ListMessagesResult>('admin-api/messages', { params });
     return response.data;
   }
 
@@ -122,10 +115,7 @@ export class MessembedAdminSDK {
     return objects as R[];
   }
 
-  protected parseDatesOfObject<T extends Record<string, any>, R = T>(
-    obj: T,
-    dateFields: readonly string[],
-  ): R {
+  protected parseDatesOfObject<T extends Record<string, any>, R = T>(obj: T, dateFields: readonly string[]): R {
     dateFields.forEach((dateField) => {
       const date = _.get(obj, dateField);
       _.set(obj, dateField, date && new Date(date));

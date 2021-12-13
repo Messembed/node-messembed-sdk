@@ -47,6 +47,8 @@ export declare class MessembedSDK {
     onWriting(cb: (chatId: string) => any): this;
     onWritingEnd(cb: (chatId: string) => any): this;
     sendWritingIndicator(chatId: string): void;
+    removeListener(event: 'newMessage' | 'newChat' | 'writing' | 'writingEnd', listener: (...args: any[]) => any): this;
+    removeAllListeners(event: 'newMessage' | 'newChat' | 'writing' | 'writingEnd'): this;
     close(): void;
     protected untilSocketConnected(): Promise<void>;
 }

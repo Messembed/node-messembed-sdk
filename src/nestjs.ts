@@ -2,18 +2,10 @@ import { DynamicModule, Global, Inject, Module } from '@nestjs/common';
 import { MessembedSDK, MessembedAdminSDK } from './';
 import { MessembedAdminSDKParams, MessembedSDKParams } from './interfaces';
 
-const MESSEMBED_SDK_MODULE__SDK_INSTANCE = Symbol(
-  'MESSEMBED_SDK_MODULE__SDK_INSTANCE',
-);
-const MESSEMBED_SDK_MODULE__ADMIN_SDK_INSTANCE = Symbol(
-  'MESSEMBED_SDK_MODULE__ADMIN_SDK_INSTANCE',
-);
-const MESSEMBED_SDK_MODULE__OPTIONS_PROVIDER = Symbol(
-  'MESSEMBED_SDK_MODULE__OPTIONS_PROVIDER',
-);
-const MESSEMBED_SDK_MODULE__ADMIN_OPTIONS_PROVIDER = Symbol(
-  'MESSEMBED_SDK_MODULE__ADMIN_OPTIONS_PROVIDER',
-);
+const MESSEMBED_SDK_MODULE__SDK_INSTANCE = Symbol('MESSEMBED_SDK_MODULE__SDK_INSTANCE');
+const MESSEMBED_SDK_MODULE__ADMIN_SDK_INSTANCE = Symbol('MESSEMBED_SDK_MODULE__ADMIN_SDK_INSTANCE');
+const MESSEMBED_SDK_MODULE__OPTIONS_PROVIDER = Symbol('MESSEMBED_SDK_MODULE__OPTIONS_PROVIDER');
+const MESSEMBED_SDK_MODULE__ADMIN_OPTIONS_PROVIDER = Symbol('MESSEMBED_SDK_MODULE__ADMIN_OPTIONS_PROVIDER');
 
 @Global()
 @Module({})
@@ -52,9 +44,7 @@ export class MessembedSDKModule {
   }
 
   static forRootAsync(asyncOptions: {
-    useFactory: (
-      ...args: any[]
-    ) => MessembedSDKParams | Promise<MessembedSDKParams>;
+    useFactory: (...args: any[]) => MessembedSDKParams | Promise<MessembedSDKParams>;
     imports?: any[];
     inject?: any[];
   }): DynamicModule {
@@ -81,9 +71,7 @@ export class MessembedSDKModule {
   }
 
   static forRootAdminAsync(asyncOptions: {
-    useFactory: (
-      ...args: any[]
-    ) => MessembedAdminSDKParams | Promise<MessembedAdminSDKParams>;
+    useFactory: (...args: any[]) => MessembedAdminSDKParams | Promise<MessembedAdminSDKParams>;
     imports?: any[];
     inject?: any[];
   }): DynamicModule {
@@ -97,9 +85,7 @@ export class MessembedSDKModule {
         },
         {
           provide: MESSEMBED_SDK_MODULE__ADMIN_SDK_INSTANCE,
-          useFactory: (
-            options: MessembedAdminSDKParams,
-          ): MessembedAdminSDK => {
+          useFactory: (options: MessembedAdminSDKParams): MessembedAdminSDK => {
             this.adminSDKInstance = new MessembedAdminSDK(options);
 
             return this.adminSDKInstance;

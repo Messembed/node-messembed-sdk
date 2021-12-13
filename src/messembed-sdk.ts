@@ -241,9 +241,39 @@ export class MessembedSDK {
     this.socket.emit('send_writing', { chatId: chatId });
   }
 
+  removeListener(event: 'newMessage' | 'newChat' | 'writing' | 'writingEnd', listener: (...args: any[]) => any): this {
+    const eventNameMap = {
+      newMessage: 'new_message',
+      newChat: 'new_chat',
+      writing: 'writing',
+      writingEnd: 'writing_end',
+    };
+
+    if (eventNameMap[event]) {
+      this.eventEmitter.removeListener(eventNameMap[event], listener);
+    }
+
+    return this;
+  }
+
+  removeAllListeners(event: 'newMessage' | 'newChat' | 'writing' | 'writingEnd'): this {
+    const eventNameMap = {
+      newMessage: 'new_message',
+      newChat: 'new_chat',
+      writing: 'writing',
+      writingEnd: 'writing_end',
+    };
+
+    if (eventNameMap[event]) {
+      this.eventEmitter.removeAllListeners(eventNameMap[event]);
+    }
+
+    return this;
+  }
+
   close(): void {
-    this.socket.close()
-    this.eventEmitter.removeAllListeners()
+    this.socket.close();
+    this.eventEmitter.removeAllListeners();
   }
 
   protected async untilSocketConnected(): Promise<void> {
