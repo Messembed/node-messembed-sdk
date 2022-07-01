@@ -12,19 +12,47 @@ import { EditUserParams } from './interfaces/edit-user-params.interface';
 import { EditChatParams } from './interfaces/edit-chat-params.interface';
 import { CreateMessageAsAdminParams } from './interfaces/create-message-params-as-admin.interface';
 import { Message } from './interfaces/message.interface';
+import { Socket } from 'socket.io-client';
+import { EventEmitter } from 'events';
+import { NewMessageForAdminInput } from './interfaces/new-message-for-admin-input.interface';
 
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'] as const;
 const MESSAGE_DATE_FIELDS = [...DATE_FIELDS, 'readAt'] as const;
 
 export class MessembedAdminSDK {
+  private params: MessembedAdminSDKParams;
+  protected socket: typeof Socket;
+  protected eventEmitter = new EventEmitter();
   protected axios: AxiosInstance;
+
   constructor(params: MessembedAdminSDKParams) {
+    this.params = params;
     this.axios = axios.create({
       baseURL: params.baseUrl,
       auth: {
         username: params.username,
         password: params.password,
       },
+    });
+  }
+
+  protected initSocketIo(): void {
+    const messembedUrl = new URL(this.params.baseUrl);
+
+    this.socket = io(messembedUrl.origin, {
+      path: messembedUrl.pathname === '/' ? '/socket.io' : messembedUrl.pathname + '/socket.io',
+      query: {
+        username: this.params.username,
+        password: this.params.password,
+      },
+    });
+
+    this.socket.on('connect', () => {
+      console.log('MessembedAdminSDK: socket is connected');
+    });
+
+    this.socket.on('new_message', (input: NewMessageForAdminInput) => {
+      this.eventEmitter.emit('new_message', input);
     });
   }
 
@@ -102,6 +130,28 @@ export class MessembedAdminSDK {
   async listMessages(params: Omit<ListMessagesParams, 'chatId'>): Promise<ListMessagesResult> {
     const response = await this.axios.get<ListMessagesResult>('admin-api/messages', { params });
     return response.data;
+  }
+
+  onNewMessage(cb: (input: NewMessageForAdminInput) => any): this {
+    this.eventEmitter.on('new_message', cb);
+    return this;
+  }
+
+  removeListener(event: 'new_message', listener: (...args: any[]) => any): this {
+    this.eventEmitter.removeListener(event, listener);
+
+    return this;
+  }
+
+  removeAllListeners(event: 'new_message'): this {
+    this.eventEmitter.removeAllListeners(event);
+
+    return this;
+  }
+
+  close(): void {
+    this.socket.close();
+    this.eventEmitter.removeAllListeners();
   }
 
   protected parseDatesOfObjects<T extends Record<string, any>, R = T>(

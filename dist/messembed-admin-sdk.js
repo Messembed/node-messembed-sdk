@@ -36,16 +36,35 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MessembedAdminSDK = void 0;
 const axios_1 = __importDefault(require("axios"));
 const _ = __importStar(require("lodash"));
+const events_1 = require("events");
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'];
 const MESSAGE_DATE_FIELDS = [...DATE_FIELDS, 'readAt'];
 class MessembedAdminSDK {
     constructor(params) {
+        this.eventEmitter = new events_1.EventEmitter();
+        this.params = params;
         this.axios = axios_1.default.create({
             baseURL: params.baseUrl,
             auth: {
                 username: params.username,
                 password: params.password,
             },
+        });
+    }
+    initSocketIo() {
+        const messembedUrl = new URL(this.params.baseUrl);
+        this.socket = io(messembedUrl.origin, {
+            path: messembedUrl.pathname === '/' ? '/socket.io' : messembedUrl.pathname + '/socket.io',
+            query: {
+                username: this.params.username,
+                password: this.params.password,
+            },
+        });
+        this.socket.on('connect', () => {
+            console.log('MessembedAdminSDK: socket is connected');
+        });
+        this.socket.on('new_message', (input) => {
+            this.eventEmitter.emit('new_message', input);
         });
     }
     async createMessage(params) {
@@ -96,6 +115,22 @@ class MessembedAdminSDK {
     async listMessages(params) {
         const response = await this.axios.get('admin-api/messages', { params });
         return response.data;
+    }
+    onNewMessage(cb) {
+        this.eventEmitter.on('new_message', cb);
+        return this;
+    }
+    removeListener(event, listener) {
+        this.eventEmitter.removeListener(event, listener);
+        return this;
+    }
+    removeAllListeners(event) {
+        this.eventEmitter.removeAllListeners(event);
+        return this;
+    }
+    close() {
+        this.socket.close();
+        this.eventEmitter.removeAllListeners();
     }
     parseDatesOfObjects(objects, dateFields) {
         objects.forEach((obj) => {
