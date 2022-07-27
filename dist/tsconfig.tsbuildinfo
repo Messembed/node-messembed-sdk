@@ -332,7 +332,7 @@
         "affectsGlobalScope": false
       },
       "../src/messembed-sdk.ts": {
-        "version": "787f8b09c50a373ae924d62c874c1deebd8587aab3f61a8d46061ddba3e16f57",
+        "version": "d735135190ae9f69064963ad5fd869fd0f5d331e0b8bb066f69a07ce8c2dc600",
         "signature": "e0fdd8ed8bf3363d012d637ccd5c4d9ac33d9977cfd67f2df8f1833868b521e7",
         "affectsGlobalScope": false
       },
@@ -357,8 +357,8 @@
         "affectsGlobalScope": false
       },
       "../src/messembed-admin-sdk.ts": {
-        "version": "202fddb63bc8a2e99805f02ed77221ce05e6d0969f2f500dd88066014f30b69d",
-        "signature": "07a37a63eeff5f4a1e46fdf2c3eacc76ca6ce014ec4cfa1a923172269edc7db1",
+        "version": "4ccba74d4b7522fae495e928e4e0dcbfa87f558c9e2ebc4a98325b92c57112ae",
+        "signature": "22258ca8f6def3594158467d634121d8120ecd30646d4762946f4bc7e48d7a9c",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {

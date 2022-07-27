@@ -50,6 +50,7 @@ export class MessembedSDK {
 
       throw error;
     });
+
     this.initSocketIo();
   }
 

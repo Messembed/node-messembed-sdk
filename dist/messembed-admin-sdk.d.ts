@@ -12,9 +12,9 @@ import { EditUserParams } from './interfaces/edit-user-params.interface';
 import { EditChatParams } from './interfaces/edit-chat-params.interface';
 import { CreateMessageAsAdminParams } from './interfaces/create-message-params-as-admin.interface';
 import { Message } from './interfaces/message.interface';
-import { Socket } from 'socket.io-client';
 import { EventEmitter } from 'events';
 import { NewMessageForAdminInput } from './interfaces/new-message-for-admin-input.interface';
+import { Socket } from 'socket.io-client';
 export declare class MessembedAdminSDK {
     private params;
     protected socket: typeof Socket;
@@ -34,8 +34,8 @@ export declare class MessembedAdminSDK {
     editUser(params: EditUserParams): Promise<User>;
     listMessages(params: Omit<ListMessagesParams, 'chatId'>): Promise<ListMessagesResult>;
     onNewMessage(cb: (input: NewMessageForAdminInput) => any): this;
-    removeListener(event: 'new_message', listener: (...args: any[]) => any): this;
-    removeAllListeners(event: 'new_message'): this;
+    removeListener(event: 'admin__new_message', listener: (...args: any[]) => any): this;
+    removeAllListeners(event: 'admin__new_message'): this;
     close(): void;
     protected parseDatesOfObjects<T extends Record<string, any>, R = T>(objects: T[], dateFields: readonly string[]): R[];
     protected parseDatesOfObject<T extends Record<string, any>, R = T>(obj: T, dateFields: readonly string[]): R;

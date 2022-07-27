@@ -37,6 +37,7 @@ exports.MessembedAdminSDK = void 0;
 const axios_1 = __importDefault(require("axios"));
 const _ = __importStar(require("lodash"));
 const events_1 = require("events");
+const socket_io_client_1 = __importDefault(require("socket.io-client"));
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'];
 const MESSAGE_DATE_FIELDS = [...DATE_FIELDS, 'readAt'];
 class MessembedAdminSDK {
@@ -50,10 +51,11 @@ class MessembedAdminSDK {
                 password: params.password,
             },
         });
+        this.initSocketIo();
     }
     initSocketIo() {
         const messembedUrl = new URL(this.params.baseUrl);
-        this.socket = io(messembedUrl.origin, {
+        this.socket = socket_io_client_1.default(messembedUrl.origin, {
             path: messembedUrl.pathname === '/' ? '/socket.io' : messembedUrl.pathname + '/socket.io',
             query: {
                 username: this.params.username,
@@ -63,8 +65,8 @@ class MessembedAdminSDK {
         this.socket.on('connect', () => {
             console.log('MessembedAdminSDK: socket is connected');
         });
-        this.socket.on('new_message', (input) => {
-            this.eventEmitter.emit('new_message', input);
+        this.socket.on('admin__new_message', (input) => {
+            this.eventEmitter.emit('admin__new_message', input);
         });
     }
     async createMessage(params) {
@@ -117,7 +119,7 @@ class MessembedAdminSDK {
         return response.data;
     }
     onNewMessage(cb) {
-        this.eventEmitter.on('new_message', cb);
+        this.eventEmitter.on('admin__new_message', cb);
         return this;
     }
     removeListener(event, listener) {

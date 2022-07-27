@@ -12,9 +12,9 @@ import { EditUserParams } from './interfaces/edit-user-params.interface';
 import { EditChatParams } from './interfaces/edit-chat-params.interface';
 import { CreateMessageAsAdminParams } from './interfaces/create-message-params-as-admin.interface';
 import { Message } from './interfaces/message.interface';
-import { Socket } from 'socket.io-client';
 import { EventEmitter } from 'events';
 import { NewMessageForAdminInput } from './interfaces/new-message-for-admin-input.interface';
+import io, { Socket } from 'socket.io-client';
 
 const DATE_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'] as const;
 const MESSAGE_DATE_FIELDS = [...DATE_FIELDS, 'readAt'] as const;
@@ -34,6 +34,8 @@ export class MessembedAdminSDK {
         password: params.password,
       },
     });
+
+    this.initSocketIo();
   }
 
   protected initSocketIo(): void {
@@ -51,8 +53,8 @@ export class MessembedAdminSDK {
       console.log('MessembedAdminSDK: socket is connected');
     });
 
-    this.socket.on('new_message', (input: NewMessageForAdminInput) => {
-      this.eventEmitter.emit('new_message', input);
+    this.socket.on('admin__new_message', (input: NewMessageForAdminInput) => {
+      this.eventEmitter.emit('admin__new_message', input);
     });
   }
 
@@ -133,17 +135,17 @@ export class MessembedAdminSDK {
   }
 
   onNewMessage(cb: (input: NewMessageForAdminInput) => any): this {
-    this.eventEmitter.on('new_message', cb);
+    this.eventEmitter.on('admin__new_message', cb);
     return this;
   }
 
-  removeListener(event: 'new_message', listener: (...args: any[]) => any): this {
+  removeListener(event: 'admin__new_message', listener: (...args: any[]) => any): this {
     this.eventEmitter.removeListener(event, listener);
 
     return this;
   }
 
-  removeAllListeners(event: 'new_message'): this {
+  removeAllListeners(event: 'admin__new_message'): this {
     this.eventEmitter.removeAllListeners(event);
 
     return this;
